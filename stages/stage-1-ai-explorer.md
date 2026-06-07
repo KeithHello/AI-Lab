@@ -38,17 +38,24 @@
 
 #### 1.1 Prompt 結構化框架
 
-```
-┌─────────────────────────────────────────┐
-│         高品質 Prompt 六要素              │
-│                                         │
-│  1. Role（角色）：你是誰？               │
-│  2. Task（任務）：要做什麼？             │
-│  3. Context（背景）：為什麼要做？        │
-│  4. Format（格式）：輸出成什麼樣子？     │
-│  5. Constraints（約束）：有什麼限制？    │
-│  6. Examples（範例）：長什麼樣子？       │
-└─────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    CENTER["高品質 Prompt<br/>六要素"]
+
+    CENTER --> R1["1. Role（角色）<br/>你是誰？<br/>設定專業身份和語氣"]
+    CENTER --> R2["2. Task（任務）<br/>要做什麼？<br/>明確的目標和範圍"]
+    CENTER --> R3["3. Context（背景）<br/>為什麼要做？<br/>提供情境和限制"]
+    CENTER --> R4["4. Format（格式）<br/>輸出成什麼樣子？<br/>JSON/Markdown/表格"]
+    CENTER --> R5["5. Constraints（約束）<br/>有什麼限制？<br/>字數、語氣、禁詞"]
+    CENTER --> R6["6. Examples（範例）<br/>長什麼樣子？<br/>給 AI 模仿的樣本"]
+
+    style CENTER fill:#7F77DD,stroke:#534AB7,color:#fff
+    style R1 fill:#EEEDFE,stroke:#534AB7
+    style R2 fill:#EEEDFE,stroke:#534AB7
+    style R3 fill:#EEEDFE,stroke:#534AB7
+    style R4 fill:#EEEDFE,stroke:#534AB7
+    style R5 fill:#EEEDFE,stroke:#534AB7
+    style R6 fill:#EEEDFE,stroke:#534AB7
 ```
 
 **實例對比**：
@@ -114,9 +121,35 @@ AI 生成初稿 → 人工修改 → AI 再次優化 → 人工定稿
 | 記憶 | 無或很弱 | 有短期/長期記憶 |
 | 自主性 | 被動回應 | 主動規劃 + 執行 |
 
-**Agent 核心循環**（先記住這個模式）：
+```mermaid
+flowchart LR
+    subgraph Chatbot["一般 Chatbot"]
+        C1["使用者提問"] --> C2["LLM 直接回答"] --> C3["結束"]
+    end
+
+    subgraph Agent["AI Agent"]
+        A1["使用者提問"] --> A2["LLM 思考<br/>需要呼叫工具嗎？"]
+        A2 -->|"需要"| A3["呼叫外部工具<br/>搜尋/計算/API"]
+        A3 --> A4["觀察工具結果"]
+        A4 --> A2
+        A2 -->|"不需要"| A5["生成最終答案"]
+        A5 --> A6["檢查是否達成目標"]
+        A6 -->|"未達成"| A2
+        A6 -->|"已達成"| A7["結束"]
+    end
+
+    style Chatbot fill:#F1EFE8,stroke:#888780
+    style Agent fill:#E1F5EE,stroke:#1D9E75
 ```
-感知 → 思考 → 行動 → 觀察結果 → 再思考 → 再行動 → ... → 達成目標
+
+**Agent 核心循環**（先記住這個模式）：
+```mermaid
+flowchart LR
+    P["👁️ 感知<br/>Perceive"] --> T["🧠 思考<br/>Think"]
+    T --> A["🛠️ 行動<br/>Act"]
+    A --> O["👀 觀察<br/>Observe"]
+    O -->|"未達成目標"| T
+    O -->|"已達成目標"| DONE["✅ 完成"]
 ```
 
 ---

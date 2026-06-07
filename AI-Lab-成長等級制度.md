@@ -8,10 +8,26 @@
 
 ## 📋 7 階段總覽
 
-```
-Stage 0 ──→ Stage 1 ──→ Stage 2 ──→ Stage 3 ──→ Stage 4 ──→ Stage 5 ──→ Stage 6
-新手村      探索者      實踐者      初階建造者   自動化專家   高階架構師   進化架構師
-(AI使用)  (Prompt力)  (原型快製)  (全棧交付)  (流程串接)  (Agent系統) (自我進化)
+```mermaid
+flowchart LR
+    S0["⛩️ Stage 0<br/>AI 新手村<br/>AI 使用"] --> S1["🧭 Stage 1<br/>AI 探索者<br/>Prompt 力"]
+    S1 --> S2["🎨 Stage 2<br/>AI 實踐者<br/>原型快製"]
+    S2 --> S3["🛠️ Stage 3<br/>初階建造者<br/>全棧交付"]
+    S2 --> S4["🔗 Stage 4<br/>自動化專家<br/>流程串接"]
+    S3 --> S5A["🧠 Stage 5A<br/>高階架構師<br/>代碼軌"]
+    S4 --> S5B["🧠 Stage 5B<br/>高階架構師<br/>低代碼軌"]
+    S5A --> S6A["🧬 Stage 6A<br/>進化架構師<br/>代碼軌"]
+    S5B --> S6B["🧬 Stage 6B<br/>進化架構師<br/>低代碼軌"]
+
+    style S0 fill:#EEEDFE,stroke:#534AB7
+    style S1 fill:#E6F1FB,stroke:#378ADD
+    style S2 fill:#E1F5EE,stroke:#1D9E75
+    style S3 fill:#EAF3DE,stroke:#639922
+    style S4 fill:#FAEEDA,stroke:#EF9F27
+    style S5A fill:#FAECE7,stroke:#D85A30
+    style S5B fill:#FAECE7,stroke:#D85A30
+    style S6A fill:#FBEAF0,stroke:#993556
+    style S6B fill:#FBEAF0,stroke:#993556
 ```
 
 | Stage | 等級名稱 | 一句話定義 | 對應 Roadmap Phase | 詳細手冊 |
@@ -100,27 +116,30 @@ Stage 0 ──→ Stage 1 ──→ Stage 2 ──→ Stage 3 ──→ Stage 4 
 
 不同背景的人有不同的最優路徑：
 
-```
-                    Stage 0 (新手村)
-                         │
-                    Stage 1 (探索者)
-                         │
-                    Stage 2 (實踐者)
-                         │
-              ┌──────────┼──────────┐
-              ▼          ▼          ▼
-     【非技術背景】  【技術背景】  【雙刀流】
-              │          │          │
-         Stage 4     Stage 3     Stage 3+4
-       (自動化專家)  (初階建造者)  (並行)
-              │          │          │
-              ▼          ▼          ▼
-           Stage 5B    Stage 5A    Stage 5A/B
-         (低代碼架構) (代碼架構)   (混合)
-              │          │          │
-              ▼          ▼          ▼
-           Stage 6B    Stage 6A    Stage 6A/B
-         (低代碼進化) (代碼進化)   (混合)
+```mermaid
+flowchart TD
+    S0["Stage 0：新手村"] --> S1["Stage 1：探索者"]
+    S1 --> S2["Stage 2：實踐者"]
+
+    S2 --> NT["非技術背景<br/>營運/市場/產品"]
+    S2 --> TECH["技術背景<br/>工程師/CS 學生"]
+    S2 --> DUAL["雙刀流<br/>想做全棧產品"]
+
+    NT --> S4["Stage 4：自動化專家<br/>n8n / Make.com"]
+    TECH --> S3["Stage 3：初階建造者<br/>Python / 全棧開發"]
+    DUAL --> S34["Stage 3 + Stage 4<br/>並行學習"]
+
+    S4 --> S5B["Stage 5B：高階架構師<br/>低代碼軌 — Dify 進階"]
+    S3 --> S5A["Stage 5A：高階架構師<br/>代碼軌 — LangGraph / MCP"]
+    S34 --> S5AB["Stage 5A/B：混合"]
+
+    S5B --> S6B["Stage 6B：進化架構師<br/>低代碼治理軌"]
+    S5A --> S6A["Stage 6A：進化架構師<br/>代碼進化軌"]
+    S5AB --> S6AB["Stage 6A/B：混合"]
+
+    style NT fill:#FAEEDA,stroke:#EF9F27
+    style TECH fill:#E6F1FB,stroke:#378ADD
+    style DUAL fill:#E1F5EE,stroke:#1D9E75
 ```
 
 | 背景 | 推薦路徑 | 理由 |
