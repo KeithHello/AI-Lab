@@ -28,9 +28,9 @@ Stage 0 ──→ Stage 1 ──→ Stage 2 ──→ Stage 3 ──→ Stage 4 
 | 1 | 🧭 AI 探索者 | 把 LLM 用成頂級特助 | [📖](./stages/stage-1-ai-explorer.md) |
 | 2 | 🎨 AI 實踐者 | 用 Vibe Coding 快速做出原型 | [📖](./stages/stage-2-ai-implementer.md) |
 | 3 | 🛠️ 初階建造者 | 交付能存檔、能運作的真實系統 | [📖](./stages/stage-3-junior-builder.md) |
-| 4 | 🔗 自動化專家 | 打破軟體孤島，打造全自動流程 | [📖](./stages/stage-4-workflow-specialist.md) |
-| 5 | 🧠 高階架構師 | 打造能自主決策的 Agent 系統 | [📖](./stages/stage-5-senior-builder.md) |
-| 6 | 🧬 進化架構師 🆕 | 設計能自我改進的元 Agent | [📖](./stages/stage-6-evolution-architect.md) |
+| 4 | 🔗 流程自動化專家 | 打破軟體孤島，打造全自動流程 | [📖](./stages/stage-4-workflow-specialist.md) |
+| 5 | 🧠 高階 AI 架構師 | 打造能自主決策的 Agent 系統 (分代碼軌/低代碼軌) | [📖](./stages/stage-5-senior-builder.md) |
+| 6 | 🧬 自我進化 Agent 架構師 🆕 | 設計能自我改進的元 Agent (分代碼軌/低代碼軌) | [📖](./stages/stage-6-evolution-architect.md) |
 
 ---
 

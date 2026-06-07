@@ -20,9 +20,9 @@ Stage 0 ──→ Stage 1 ──→ Stage 2 ──→ Stage 3 ──→ Stage 4 
 | **1** | AI 探索者 (AI Explorer) | 把 LLM 用成頂級特助 | Phase 1 | [📖 完整手冊](./stages/stage-1-ai-explorer.md) |
 | **2** | AI 實踐者 (AI Implementer) | 用 AI 快速做出能看的原型 | Phase 2 | [📖 完整手冊](./stages/stage-2-ai-implementer.md) |
 | **3** | 初階 AI 建造者 (Junior AI Builder) | 交付能存檔、能運作的真實系統 | Phase 3 | [📖 完整手冊](./stages/stage-3-junior-builder.md) |
-| **4** | 流程自動化專家 (Workflow Specialist) | 消除碎片化，打造全自動流程 | Phase 5 | [📖 完整手冊](./stages/stage-4-workflow-specialist.md) |
-| **5** | 高階 AI 架構師 (Senior AI Builder) | 打造能自主決策的 Agent 系統 | Phase 4 + Phase 6 | [📖 完整手冊](./stages/stage-5-senior-builder.md) |
-| **6** | 自我進化 Agent 架構師 (Evolution Architect) | 設計能自我改進的元 Agent | Phase 6 延伸 | [📖 完整手冊](./stages/stage-6-evolution-architect.md) |
+| **4** | 流程自動化專家 (Workflow Specialist) | 消除碎片化，打造全自動流程 | Phase 4 | [📖 完整手冊](./stages/stage-4-workflow-specialist.md) |
+| **5** | 高階 AI 架構師 (Senior AI Builder) | 打造能自主決策的 Agent 系統 (分代碼軌與低代碼軌) | Phase 5 | [📖 完整手冊](./stages/stage-5-senior-builder.md) |
+| **6** | 自我進化 Agent 架構師 (Evolution Architect) | 設計能自我改進的元 Agent (分代碼軌與低代碼軌) | Phase 6 | [📖 完整手冊](./stages/stage-6-evolution-architect.md) |
 
 ---
 
@@ -114,18 +114,20 @@ Stage 0 ──→ Stage 1 ──→ Stage 2 ──→ Stage 3 ──→ Stage 4 
          Stage 4     Stage 3     Stage 3+4
        (自動化專家)  (初階建造者)  (並行)
               │          │          │
-              └──────────┼──────────┘
-                         ▼
-                    Stage 5 (高階架構師)
-                         │
-                    Stage 6 (進化架構師)
+              ▼          ▼          ▼
+           Stage 5B    Stage 5A    Stage 5A/B
+         (低代碼架構) (代碼架構)   (混合)
+              │          │          │
+              ▼          ▼          ▼
+           Stage 6B    Stage 6A    Stage 6A/B
+         (低代碼進化) (代碼進化)   (混合)
 ```
 
 | 背景 | 推薦路徑 | 理由 |
 |---|---|---|
-| **非技術背景**（營運/市場/產品） | 0→1→2→4→5 | 先建立「用 AI 解決問題」的直覺，再補技術 |
-| **技術背景**（工程師/CS 學生） | 0→1→2→3→5 | 直接深入代碼層，低代碼只是過渡 |
-| **雙刀流**（想做全棧產品） | 0→1→2→3+4→5 | 左右開弓，但時間投入最大 |
+| **非技術背景**（營運/市場/產品） | 0→1→2→4→5B→6B | 專注低代碼與企業級流程整合，無需手寫代碼，安全降落 |
+| **技術背景**（工程師/CS 學生） | 0→1→2→3→5A→6A | 直接深入代碼與 LLM 底層機制，解鎖定製化開發 |
+| **雙刀流**（想做全棧產品） | 0→1→2→3+4→5A/B→6A/B | 左右開弓，兼顧開發靈活性與整合速度 |
 
 ---
 
@@ -137,9 +139,9 @@ Stage 0 ──→ Stage 1 ──→ Stage 2 ──→ Stage 3 ──→ Stage 4 
 | Stage 1 | Phase 1 | Prompt Engineering、Function Calling、Agent 核心循環 |
 | Stage 2 | Phase 2 | Vibe Coding（v0/bolt.new/Cursor）、Coze/Dify 低代碼 |
 | Stage 3 | Phase 3 | LangChain、自定義 Tool、ReAct、全棧部署 |
-| Stage 4 | Phase 5（自動化方向） | n8n/Make.com、Webhook、跨平台串接、錯誤處理 |
-| Stage 5 | Phase 4 + Phase 6 | RAG 全流程、Multi-Agent（CrewAI/AutoGen）、LangGraph |
-| Stage 6 | Phase 6 延伸 + 新內容 | GRPO/DPO、DSPy、Meta-Agent、自我改進循環、持續學習 |
+| Stage 4 | Phase 4 | n8n/Make.com、Webhook、跨平台串接、錯誤處理 |
+| Stage 5 | Phase 5 | **A軌(代碼)**: RAG、LangGraph、MCP Server、Docker / **B軌(低代碼)**: Dify進階、連接器 |
+| Stage 6 | Phase 6 | **A軌(代碼)**: DSPy、Reflexion、GRPO/DPO 微調 / **B軌(低代碼)**: 自動化評估、Meta-Workflow |
 
 > 📖 **學習路線圖完整內容** → 見 [AI-Agent-學習路線圖.md](./AI-Agent-學習路線圖.md)
 

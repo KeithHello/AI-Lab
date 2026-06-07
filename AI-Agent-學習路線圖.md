@@ -16,10 +16,9 @@
 | Phase 1 | Stage 1 — AI 探索者 | 把 LLM 用成頂級特助 |
 | Phase 2 | Stage 2 — AI 實踐者 | 用 AI 快速做出能看的原型 |
 | Phase 3 | Stage 3 — 初階 AI 建造者 | 交付能存檔、能運作的真實系統 |
-| Phase 4 | Stage 5 組件 — RAG & Memory | 給 Agent 裝上知識和大腦 |
-| Phase 5 | Stage 4 — 自動化專家 / Stage 5 組件 | 從 Demo 到產品的關鍵跨越 |
-| Phase 6 | Stage 5 — 高階架構師 | Multi-Agent 系統設計 |
-| Phase 6 延伸 | Stage 6 — 自我進化架構師 🆕 | 設計能自我改進的元 Agent |
+| Phase 4 | Stage 4 — 流程自動化專家 | 打破軟體孤島，打造全自動流程 |
+| Phase 5 | Stage 5 — 高階 AI 架構師 | 打造能自主決策的 Agent 系統 (分代碼軌/低代碼軌) |
+| Phase 6 | Stage 6 — 自我進化 Agent 架構師 🆕 | 設計能自我改進的元 Agent (分代碼軌/低代碼軌) |
 
 > 💡 **詳細等級定義、通過標準、升階條件** → 見 [AI-Lab-成長等級制度.md](./AI-Lab-成長等級制度.md)
 
@@ -32,9 +31,9 @@
 - [Phase 1：Agent 核心心智（1 周）](#phase-1agent-核心心智1-周)
 - [Phase 2：低代碼實戰 — 先做出來再理解（2 周）](#phase-2低代碼實戰--先做出來再理解2-周)
 - [Phase 3：代碼級 Agent — 打開黑盒（3-4 周）](#phase-3代碼級-agent--打開黑盒3-4-周)
-- [Phase 4：RAG & Memory — 給 Agent 裝上大腦（2-3 周）](#phase-4rag--memory--給-agent-裝上大腦2-3-周)
-- [Phase 5：生產級 Agent — 從 Demo 到產品（3-4 周）](#phase-5生產級-agent--從-demo-到產品3-4-周)
-- [Phase 6：Multi-Agent & 前沿 — 追平業界（持續）](#phase-6multi-agent--前沿--追平業界持續)
+- [Phase 4：流程自動化專家 — 打破軟體孤島（2-3 周）](#phase-4流程自動化專家--打破軟體孤島2-3-周)
+- [Phase 5：生產級 & 高階 Agent 架構 — RAG, Memory, LangGraph（3-4 周）](#phase-5生產級--高階-agent-架構--rag-memory-langgraph3-4-周)
+- [Phase 6：自我進化 Agent 架構師 — DSPy, Meta-Agent, RL（6-8 周）](#phase-6自我進化-agent-架構師--dspy-meta-agent-rl6-8-周)
 - [學習資源彙總](#-學習資源彙總)
 - [常見誤區 & 避坑指南](#-常見誤區--避坑指南)
 
@@ -48,11 +47,10 @@
 | 能手寫一個有效的 System Prompt 讓 AI 按你的意圖輸出 | Phase 0 |
 | 在 Coze/Dify 上搭建過一個完整的 Agent Workflow | Phase 2 |
 | 用 Python + LangChain 寫過 Agent（含 Tool Calling） | Phase 3 |
-| 理解 RAG 的完整 Pipeline 並且自己實現過 | Phase 4 |
-| 用 LangGraph 構建過多步驟的有狀態 Agent | Phase 5 |
-| 理解 MCP/A2A 協議並能獨立開發 MCP Server | Phase 5 |
-| 部署過一個生產可用的 Agent 服務（含監控） | Phase 5 |
-| 構建過 Multi-Agent 協作系統 | Phase 6 |
+| 搭建過跨多個 SaaS 工具的自動化流程 (Make.com/n8n) | Phase 4 |
+| 設計並實現過包含 RAG + Memory 的有狀態 Agent 工作流 (LangGraph) | Phase 5 |
+| 理解並寫過 MCP Server / 部署過生產級監控服務 | Phase 5 |
+| 寫過能自我評估與修正的 Reflexion/DSPy 代理或 RL 微調模型 | Phase 6 |
 
 ---
 
@@ -93,12 +91,12 @@
 #### 1.1 Agent 的定義與核心循環
 
 ```
-┌─────────────────────────────────────┐
-│         Agent 核心循環               │
-│                                     │
+┌────────────────────────────────────────────────────────────────────┐
+│         Agent 核心循環                                              │
+│                                                                    │
 │  感知(Perceive) → 思考(Think) → 行動(Act) → 觀察(Observe) → 循環...  │
-│                                     │
-└─────────────────────────────────────┘
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
 ```
 
 - **Perceive**：獲取環境信息（用戶輸入、工具返回、上下文）
@@ -264,161 +262,153 @@ def get_stock_price(symbol: str) -> str:
 
 ---
 
-## Phase 4：RAG & Memory — 給 Agent 裝上大腦（2-3 周）
+## Phase 4：流程自動化專家 — 打破軟體孤島（2-3 周）
 
-> **目標**：讓 Agent 擁有「知識」和「記憶」，不再是金魚腦。
->
-> **核心認知**：RAG 解決「外部知識」，Memory 解決「內部狀態」。
+> **目標**：用低代碼與 API 串接技術，消除重複人工，打造完全自動化的企業工作流。
+
+```mermaid
+graph TD
+    A[外部事件: 如客戶在 LINE 發送訊息] -->|Webhook 觸發| B(自動化平台: n8n / Make.com)
+    B --> C{判斷節點: 意圖包含「查詢庫存」?}
+    C -->|Yes| D[動作節點: 讀取 Google Sheets 庫存]
+    C -->|No| E[動作節點: 轉發至 Slack 客服頻道]
+    D --> F[動作節點: 呼叫 LLM 潤色回覆]
+    F --> G[動作節點: 透過 LINE Bot 回覆客戶]
+```
 
 ### 學什麼
 
-#### 4.1 RAG 完整 Pipeline
+#### 4.1 自動化思維
+- **ROI 評估**：什麼流程值得自動化？（高頻、規則明確、重複性高、容錯度低）。
 
-```
-離線階段（Indexing）：
-文檔 → 分塊(Chunking) → 向量化(Embedding) → 存入向量數據庫
+| 判斷標準 | 值得自動化 | 不值得自動化 |
+|---|---|---|
+| **頻率** | 每天或每週發生 | 一年一次 |
+| **規則性** | 規則明確，決策邏輯清晰 | 每次都要人為判斷 |
+| **規模** | 大量重複操作 | 小量一次性任務 |
+| **錯誤成本** | 人為出錯代價高 | 出錯影響不大 |
+| **ROI** | 自動化開發時間 < 半年人工時間 | 開發比人工還久 |
 
-在線階段（Retrieval + Generation）：
-用戶提問 → 向量化 → 相似度檢索 → 重排序(Rerank) → 拼接上下文 → LLM 生成答案
+- **流程拆解**：觀察並記錄人工步驟，將其分解為觸發器、判斷分支與動作節點。
+
+#### 4.2 核心自動化工具
+- **Make.com**：視覺化拖拽，適合快速串接 SaaS。
+- **n8n.io**：開源可私有化部署，節點豐富，最適合企業內部安全要求。
+- **Webhook 觸發機制**：事件驅動（如收到信、新訂單）的即時非同步推送。
+
+#### 4.3 數據處理與分支邏輯
+- **JSON 解析**：在流程中篩選、過濾與轉換 JSON 欄位（如提取訂單號與客戶名）。
+- **Router 條件分支**：基於狀態走向不同的處理邏輯。
+- **Error Handling**：API 逾時重試、錯誤備案與 Slack 報錯通知。
+
+| 系統類型 | 代表工具 | 常見串接場景 |
+|---|---|---|
+| **通訊** | LINE、Slack、Teams | 自動通知、Bot 回覆、訊息轉發 |
+| **郵件** | Gmail、Outlook | 自動分類、自動回覆、附件處理 |
+| **文書** | Google Sheets/Drive、Notion | 自動填表、報表生成 |
+| **CRM** | Salesforce、HubSpot | 商機自動追蹤、客戶標籤 |
+| **電商** | Shopify、蝦皮 | 訂單管理、庫存同步 |
+| **ERP** | SAP、Oracle | 採購單自動生成、發票處理 |
+
+### 練什麼
+- [ ] **練習 1**：使用 Make.com 串接 Gmail -> Google Sheets，自動記錄主旨含「訂單」的信件，並發送 Slack 通知。
+- [ ] **練習 2**：串接 LINE Bot -> Google Sheets + AI，當收到「查詢」關鍵字時，自動調用 Sheets 數據並經由 LLM 生成回覆。
+- [ ] **項目 4**：**「企業商機追蹤與合約生成系統」**
+  - Webhook 觸發：HubSpot 新增商機。
+  - AI 填充：使用 Google Docs 模板 + AI 生成定製合約。
+  - 自動傳送：發送 Email 給客戶，簽回後自動更新狀態。
+- [ ] **項目 5**：**「跨平台客服派單與庫存同步」**
+  - 客戶在 LINE/Email 提出退貨，自動分類問題，並指派給對應客服（Slack 通知），自動查詢庫存系統確認數量。
+
+### 產出
+✅ **SaaS 串接流程圖** + **n8n/Make 導出 JSON 備份** + **商機合約自動化專案** + **客服自動化派單專案**
+
+---
+
+## Phase 5：生產級 & 高階 Agent 架構 — RAG, Memory, LangGraph（3-4 周）
+
+> **目標**：打造擁有記憶與知識庫、能在生產環境穩定運行的 Agent 系統，分代碼與低代碼雙軌。
+
+### 機制架構圖
+
+#### 5.1 知識庫（RAG）管道
+```mermaid
+graph TD
+    subgraph Indexing Pipeline [離線文件處理]
+        Doc[原始文件] --> Parser[文件解析: MinerU/Markitdown]
+        Parser --> Chunk[分塊策略: Semantic Chunking]
+        Chunk --> Embed[向量化: Embedding]
+        Embed --> VDB[(向量資料庫: Milvus/Chroma)]
+    end
+    subgraph Retrieval & Generation [線上檢索與生成]
+        Query[使用者提問] --> QEmbed[提問向量化]
+        QEmbed --> Search[混合檢索: Vector + Keyword]
+        Search --> Rerank[重排序: Reranker]
+        Rerank --> Context[拼接上下文 Context]
+        Context --> LLM[LLM 生成最終回答]
+    end
 ```
+
+#### 5.2 記憶（Memory）三層流動
+```mermaid
+graph LR
+    User[使用者] <--> WM[Working Memory<br/>當前對話 Context]
+    WM <--> STM[Short-term Memory<br/>本次會話對話歷史]
+    WM -->|下沉 Sink: 壓縮摘要| LTM[(Long-term Memory<br/>跨會話持久化記憶)]
+    LTM -->|上浮 Pull: 語意檢索| WM
+```
+
+#### 5.3 有狀態決策循環 (LangGraph)
+```mermaid
+graph TD
+    START([START]) --> Node1[意圖識別 Node]
+    Node1 --> Edge{條件分支 Edge}
+    Edge -->|知識問答| Node2[檢索知識 Node]
+    Edge -->|工具執行| Node3[執行工具 Node]
+    Edge -->|緊急投訴| Node4[人工接入 Node]
+    Node2 --> Node5[生成回覆 Node]
+    Node3 --> Node5
+    Node5 --> Node6[滿意度檢查 Node]
+    Node6 -->|滿意| END([END])
+    Node6 -->|不滿意| Node4
+    Node4 --> END
+```
+
+### 學什麼
+
+#### 5.1 RAG 與 Memory 細節
+- **RAG 優化 Pipeline**：
 
 | 環節 | 關鍵技術 | 常見方案 |
 |---|---|---|
-| 文檔解析 | PDF/Word/HTML → 純文本 | Unstructured, MinerU, Markitdown |
-| 分塊策略 | 怎麼切才能讓檢索更準？ | RecursiveCharacterTextSplitter, Semantic Chunking |
-| Embedding | 把文本變成向量 | text-embedding-3-small, bge-m3, jina-embeddings |
-| 向量數據庫 | 存向量 + 快速搜索 | Chroma（入門）, Milvus/Qdrant（生產） |
-| 檢索策略 | 怎麼搜到對的？ | 混合檢索（向量 + 關鍵詞）, HyDE, Multi-Query |
-| Rerank | 搜到後怎麼排序？ | Cohere Rerank, BGE-Reranker |
-| 評估 | 檢索到的東西對不對？ | RAGAS（faithfulness, relevancy, precision） |
+| **文檔解析** | PDF/Word/HTML → 純文本 | Unstructured, MinerU, Markitdown |
+| **分塊策略** | 怎麼切才能讓檢索更準？ | RecursiveCharacterTextSplitter, Semantic Chunking |
+| **Embedding** | 把文本變成向量 | text-embedding-3-small, bge-m3, jina-embeddings |
+| **向量數據庫** | 存向量 + 快速搜索 | Chroma（入門）, Milvus/Qdrant（生產） |
+| **檢索策略** | 怎麼搜到對的？ | 混合檢索（向量 + 關鍵詞）, HyDE, Multi-Query |
+| **Rerank** | 搜到後怎麼排序？ | Cohere Rerank, BGE-Reranker |
+| **評估** | 檢索到的東西對不對？ | RAGAS（faithfulness, relevancy, precision） |
 
-#### 4.2 Memory 三層架構
+- **Memory 三層架構**：
+  - **Working Memory**：當前對話 Context（最活躍、最昂貴）。
+  - **Short-term Memory**：本次會話對話歷史。
+  - **Long-term Memory**：跨會話持久化記憶，通常採用 SQLite/DBMS 壓縮摘要存檔。
 
-```
-┌─────────────────┐
-│  Working Memory │ ← 當前對話上下文
-├─────────────────┤
-│ Short-term Mem  │ ← 本次會話歷史
-├─────────────────┤
-│  Long-term Mem  │ ← 跨會話持久化記憶
-└─────────────────┘
-```
+#### 5.2 有狀態的工作流編排
+- **LangGraph [代碼軌]**：State（狀態定義）、Nodes（處理步驟）、Edges（普通與條件邊）、Checkpointer（歷史快照，支援人工介入 / Human-in-the-loop）。
+- **Dify/Flowise [低代碼軌]**：Dify 進階工作流，多節點 Variable 傳遞，Intent Classifier，知識庫檢索與人工覆核節點。
 
-**關鍵操作**：
-- **下沉(sink)**：重要信息從 Working → Long-term
-- **上浮(pull)**：檢索 Long-term 中的相關信息到 Working
-
-### 練什麼
-
-- [ ] **練習 1**：用 Chroma + OpenAI Embedding 搭建最小 RAG 系統
-  - 上傳 5 篇技術文章 → 能回答相關問題
-- [ ] **練習 2**：對比不同分塊策略的檢索效果（固定大小 vs 語義分塊）
-- [ ] **練習 3**：給 Agent 加上長期記憶（用 SQLite 存儲對話摘要）
-- [ ] **項目 5**：**「個人知識庫 Agent」**
-  - 導入你的筆記/文檔 → 自然語言問答
-  - 支持追問和上下文關聯
-  - 附帶檢索效果評估（RAGAS 評分）
-
-### 產出
-
-✅ **RAG 系統 Demo** + **分塊策略對比報告** + **帶記憶的 Agent**
-
----
-
-## Phase 5：生產級 Agent — 從 Demo 到產品（3-4 周）
-
-> **目標**：把 Agent 做成一個可以部署、可監控、能應對真實用戶的正經服務。
->
-> **這是從「能做」到「能用」的關鍵跨越。**
-
-### 學什麼
-
-#### 5.1 LangGraph — 有狀態的 Agent 工作流
-
-**爲什麼需要 LangGraph**：Chain 是線性的，但真實 Agent 需要分支、循環、條件判斷、人工介入。
-
-```python
-from langgraph.graph import StateGraph, START, END
-
-# 核心概念
-# State: Agent 的狀態（對話歷史、中間結果、用戶偏好等）
-# Node: 一個處理步驟（調用 LLM、執行工具、檢查結果）
-# Edge: 連接節點的線（普通邊、條件邊）
-# Checkpoint: 狀態的快照（支持暫停/恢復/回溯）
-```
-
-#### 5.2 MCP (Model Context Protocol)
-
-> MCP 是 Anthropic 提出的標準協議——讓 Agent 和工具之間用統一的方式通信。
-
-```
-┌──────────┐     MCP Protocol     ┌──────────────┐
-│  Agent   │ ←──────────────────→ │  MCP Server   │
-│ (Client) │   tools/list         │ (工具提供方)  │
-│          │   tools/call         │               │
-└──────────┘                      └──────────────┘
-```
-
-**關鍵認知**：
-- MCP Server 可以是你寫的任何服務（數據庫查詢、API 調用、文件操作）
-- 一旦寫好 MCP Server，任何支持 MCP 的 Agent 都能直接調用
-- Claude Desktop / Cursor / Continue 都支持 MCP
-
-#### 5.3 A2A (Agent-to-Agent Protocol)
-
-> Google 提出的標準——讓不同 Agent 之間互相發現和協作。
-
-MCP vs A2A 的區別：
-| | MCP | A2A |
-|---|---|---|
-| 誰和誰通信 | Agent ↔ Tool | Agent ↔ Agent |
-| 解決的問題 | 怎麼調用工具？ | 怎麼讓兩個 Agent 協作？ |
-
-#### 5.4 生產部署 Checklist
-
-| 維度 | 要做什麼 | 工具/方案 |
-|---|---|---|
-| **部署** | 容器化 + API 服務 | Docker + FastAPI / Flask |
-| **安全** | 沙箱隔離、權限控制 | Docker sandbox, API Key 管理 |
-| **監控** | Token 用量、響應時間、錯誤率 | LangSmith, LangFuse, Weave |
-| **成本** | 緩存策略、模型降級 | 語義緩存(GPTCache)、小模型兜底 |
-| **評測** | 回答質量、工具調用準確率 | 人工標註 + 自動評測 + A/B 測試 |
-| **流式輸出** | SSE / WebSocket | FastAPI StreamingResponse |
-
-### 練什麼
-
-- [ ] **練習 1**：用 LangGraph 把 Phase 3 的 Agent 改寫成有狀態的 Graph
-- [ ] **練習 2**：寫一個 MCP Server（功能：查詢本地文件 + 執行 SQL）
-  - 在 Claude Desktop 中加載這個 Server，驗證能用
-- [ ] **練習 3**：給你的 Agent 加上完整的監控（LangFuse / LangSmith）
-- [ ] **項目 6**：**「生產級客服 Agent」**
-  - LangGraph 實現：意圖識別 → 檢索 → 生成 → 不滿意則轉人工
-  - FastAPI 部署 + Docker 容器化
-  - LangFuse 全鏈路監控
-  - 至少處理 50 條真實測試用例，記錄準確率
-
-### 產出
-
-✅ **LangGraph Agent** + **MCP Server** + **部署文檔** + **監控 Dashboard**
-
----
-
-## Phase 6：Multi-Agent & 前沿 — 追平業界（持續）
-
-> **目標**：構建多 Agent 協作系統，跟蹤前沿，建立持續學習的習慣。
-
-### 學什麼
-
-#### 6.1 Multi-Agent 協作模式
+#### 5.3 Multi-Agent 協作與工具協議
+- **Multi-Agent 協作模式**：
 
 | 模式 | 描述 | 類比 |
 |---|---|---|
-| **Supervisor** | 一個主 Agent 分配任務給子 Agent | 項目經理 + 執行團隊 |
+| **Supervisor** | 一個主 Agent 分配任務給子 Agent | 專案經理 + 執行團隊 |
 | **Decentralized** | Agent 之間平等協商 | 團隊 Brainstorming |
 | **Hierarchical** | 多層級的 Agent 結構 | 公司組織架構 |
-| **Blackboard** | Agent 共享一個數據空間 | 共享白板協作 |
+| **Blackboard** | Agent 共享一個資料空間 | 共享白板協作 |
 
-#### 6.2 主流 Multi-Agent 框架
+- **主流 Multi-Agent 框架**：
 
 | 框架 | 特點 | 適合場景 |
 |---|---|---|
@@ -427,14 +417,137 @@ MCP vs A2A 的區別：
 | **LangGraph** | 圖結構，最靈活 | 複雜業務邏輯 |
 | **OpenAI Swarm** | 輕量級，適合實驗 | 快速原型 |
 
-#### 6.3 Agent 微調 (Fine-tuning)
+- **MCP (Model Context Protocol)**：統一工具標準，讓 Client (如 Cursor) 與 Server 交互。
+- **沙箱隔離 (Sandboxing)**：執行程式碼工具時必須在 Docker sandbox 中運行，避免遠端代碼執行安全漏洞。
+- **防注入防禦 (Prompt Injection Defense)**：過濾惡意輸入，加載防注入護欄。
 
-> 什麼時候需要微調 Agent？
-> - 模型不按你的 System Prompt 行事 → 微調能顯著改善
-> - 需要特定領域的專業術語理解
-> - 需要固定風格的輸出
+#### 5.4 生產部署 Checklist
+- **部署**：容器化 + API 服務 (Docker + FastAPI)。
+- **安全**：沙箱隔離、權限控制 (Docker sandbox)。
+- **監控**：Token 用量、響應時間、錯誤率 (LangSmith, LangFuse)。
+- **成本**：緩存策略、小模型兜底 (語義緩存)。
+- **評測**：回答質量、工具調用準確率 (RAGAS + A/B 測試)。
 
-**微調方案對比**：
+### 練什麼
+- [ ] **練習 1**：使用 Chroma 向量庫 + OpenAI Embedding 搭建個人知識庫 RAG 系統，並使用 RAGAS 評分。
+- [ ] **練習 2**：[代碼軌] 用 LangGraph 寫一個帶 Checkpoint 暫停功能的客服流程 / [低代碼軌] 用 Dify 搭建帶知識庫和意圖識別的智能客服。
+- [ ] **練習 3**：開發一個 MCP Server，能讀取本地 SQLite 資料庫並執行 SQL。
+- [ ] **項目 6**：**「生產級智能客服總監」**
+  - RAG 知識檢索 + 意圖分類 -> 自動查庫存 -> Docker 沙箱安全執行輔助計算 -> Langsmith/Langfuse 監控。
+- [ ] **項目 7**：**「Multi-Agent 內容創作團隊」**
+  - 角色：研究員、寫手、編輯、審核員。接收主題，自動搜集、潤色與審查， CrewAI 或 LangGraph 實現。
+- [ ] **項目 8**：**「個人 AI 助手」**
+  - 管理日程 + 記錄筆記 + 執行自動化任務。MCP Server 集成個人工具，並支持 SQLite 長期記憶。
+
+### 產出
+✅ **混合檢索 RAG 專案** + **LangGraph 流程圖/Dify DSL** + **安全沙箱運行的 MCP Server** + **Langsmith 監控 Dashboard** + **Multi-Agent 創作系統**
+
+---
+
+## Phase 6：自我進化 Agent 架構師 — DSPy, Meta-Agent, RL（6-8 周）
+
+> **目標**：設計能自我評估、自我改進、自我進化的元 Agent 系統，實現「Agent 驅動 Agent」。
+
+### 機制架構圖
+
+#### 6.1 Reflexion 自我改進循環
+```mermaid
+graph TD
+    Task[任務輸入] --> SearchMem[檢檢索長期記憶中的失敗教訓]
+    SearchMem --> Exec[執行任務]
+    Exec --> Eval{自我評估 / 測試集驗證}
+    Eval -->|成功| Success[任務完成]
+    Eval -->|失敗| Reflect[診斷失敗原因]
+    Reflect --> Lesson[產生經驗教訓 Lesson]
+    Lesson --> Store[存入長期經驗庫]
+    Store --> SearchMem
+```
+
+#### 6.2 Meta-Agent 優化循環
+```mermaid
+graph TD
+    Input[任務描述] --> Designer[Agent 設計器 Node]
+    Designer -->|生成 Prompt & Tools| TaskAgent[Task Agent]
+    TaskAgent -->|執行任務資料| Evaluator[Agent 評估者 Node]
+    Evaluator -->|產出效能報告| Optimizer[Agent 優化器 Node]
+    Optimizer -->|調整 System Prompt/配置| Designer
+```
+
+#### 6.3 GRPO 推理相對強化學習
+```mermaid
+graph TD
+    Prompt[輸入 Prompt] --> Gen[LLM 策略模型生成 N 個回答]
+    Gen --> Ans1[回答 1]
+    Gen --> Ans2[回答 2]
+    Gen --> AnsN[回答 N]
+    Ans1 --> Eval[自動化評測/規則打分]
+    Ans2 --> Eval
+    AnsN --> Eval
+    Eval --> Score[計算組內相對 Reward 相對優勢]
+    Score --> Update[梯度更新策略模型]
+```
+
+### 學什麼
+
+#### 6.1 自我改進與元代理（Meta-Agent）
+- **Reflexion 框架**：Agent 分析失敗案例，生成「經驗教訓」存入長期經驗庫，在下次任務中自動載入應用。
+```python
+# Reflexion 核心代碼思路
+def agent_with_reflexion(task):
+    relevant_lessons = memory.search(task)
+    enhanced_prompt = apply_lessons(task, relevant_lessons)
+    result = agent.execute(enhanced_prompt)
+    evaluation = agent.evaluate(result)
+    if evaluation.failed:
+        lesson = agent.analyze_failure(task, result, evaluation)
+        memory.store(lesson)
+        return agent_with_reflexion(task) # 重試
+    return result
+```
+
+- **自主工具生成 (Autonomous Tool Creation)**：Agent 發現現有工具不足時，**自己寫新工具**並驗證可用性。
+```python
+# 自主工具生成流程（概念）
+class ToolGenerator:
+    def generate_tool(self, need: str, context: dict):
+        spec = self.analyze_need(need, context)
+        code = self.llm.generate_tool_code(spec)
+        description = self.llm.generate_description(code, spec)
+        test_result = self.validate_tool(code, spec.test_cases)
+        if test_result.passed:
+            self.tool_registry.register(code, description)
+            return Tool(code, description)
+        else:
+            return self.generate_tool(need + f"\n前次失敗：{test_result.error}", context)
+```
+
+- **Meta-Agent 元架構**：
+
+| 元 Agent | 輸入 | 輸出 |
+|---|---|---|
+| **設計器 (Designer)** | 任務描述 + 領域知識 | Agent 的 System Prompt + Tool Set + RAG 配置 |
+| **評估器 (Evaluator)** | Task Agent 的運行資料 | 效能報告（準確率、延遲、成本、失敗模式分析） |
+| **優化器 (Optimizer)** | 效能報告 | 調整後的 Agent 配置（Prompt 修改、Tool 增減） |
+
+#### 6.2 動態 Prompt 編譯
+- **DSPy 框架 [代碼軌]**：不手寫 Prompt，而是讓 Agent 透過測試數據自動搜尋最優 Prompt 組合。
+```python
+import dspy
+class MyAgent(dspy.Module):
+    def __init__(self):
+        self.prompt = dspy.ChainOfThought("question -> answer")
+    def forward(self, question):
+        return self.prompt(question=question)
+
+# 自動編譯
+optimizer = dspy.BootstrapFewShot(metric=accuracy_metric)
+optimized_agent = optimizer.compile(MyAgent(), trainset=test_cases)
+```
+
+- **低代碼自動化治理 [低代碼軌]**：基於 LangSmith / LangFuse 建立批次自動評測，設置 LLM-as-a-judge 判定節點自動淘汰低效 Prompt 模板。
+
+#### 6.3 強化學習與微調 (RL & Fine-tuning)
+- **微調方案對比**：
 
 | 方案 | 適用場景 | 成本 |
 |---|---|---|
@@ -443,158 +556,36 @@ MCP vs A2A 的區別：
 | SFT + LoRA | 領域適配、行爲對齊 | ⭐⭐⭐ 需 GPU |
 | DPO / GRPO | 偏好對齊、質量提升 | ⭐⭐⭐⭐ 需更多計算 |
 
-#### 6.4 前沿追蹤
+- **GRPO (Group Relative Policy Optimization)**：DeepSeek-R1 推理能力自我提升的核心算法，無需 Critic 模型，基於組內相對比較打分。
+- **算力與微調實踐**：個人學習者避免從零訓練 RLHF，建議使用 **Google Colab** 結合 **Llama-Factory / Unsloth** 在單張 GPU 上微調 PoC 推理模型。如果是無代碼背景，專注於利用資料庫記錄 Reflexion 失敗教訓，並將其動態插入工作流的 System Prompt 中。
 
-**2025-2026 年必關注方向**：
+#### 6.4 前沿追蹤 (2025-2026 年)
+- **Agentic RL** (GRPO/DeepSeek-R1)。
+- **Computer Use** (Claude Computer Use, OpenAI Operator)。
+- **Code Agent** (Devin, Cursor Agent, Claude Code)。
+- **Agent Protocol** (MCP, A2A)。
+- **SWE-bench** (軟體工程評測基準)。
 
-| 方向 | 代表工作 | 爲什麼重要 |
+#### 6.5 企業價值對比 (S5 vs S6)
+| 維度 | 傳統 Agent (Stage 5) | 自我進化 Agent (Stage 6) |
 |---|---|---|
-| **Agentic RL** | GRPO (DeepSeek-R1) | 讓 Agent 通過強化學習自我改進 |
-| **Computer Use** | Claude Computer Use, OpenAI Operator | Agent 直接操控電腦 |
-| **Code Agent** | Devin, Cursor Agent, Claude Code | AI 程序員正在重塑軟件開發 |
-| **Agent Protocol** | MCP, A2A, ANP | Agent 互聯網的 TCP/IP |
-| **SWE-bench** | 軟件工程評測基準 | 衡量 Agent 編程能力的標準 |
+| **維護成本** | 需要工程師定期調整 Prompt 和工具 | Agent 自我調整，維護成本趨近於零 |
+| **適應速度** | 業務變化 → 等待開發排程 | 業務變化 → Agent 即時自我適應 |
+| **錯誤改進** | 依賴人工發現 + 修復 | Agent 自動發現 + 自動修正 |
+| **規模化** | 每個場景需要單獨開發 | Meta-Agent 自動產生場景 Agent |
 
 ### 練什麼
-
-- [ ] **項目 7**：**「Multi-Agent 內容創作團隊」**
-  - Agent 1（研究員）：搜索 + 整理資料
-  - Agent 2（寫手）：根據資料生成文章
-  - Agent 3（編輯）：審查 + 潤色
-  - Agent 4（審覈員）：最終質量把關
-  - 框架：CrewAI 或 LangGraph
-
-- [ ] **項目 8**：**「個人 AI 助手」**
-  - 功能：管理日程 + 記錄筆記 + 搜索信息 + 執行自動化任務
-  - MCP Server 集成各種個人工具
-  - 長期記憶（記住你的偏好和習慣）
-
-- [ ] **持續習慣**：
-  - 每週讀 2-3 篇 arXiv Agent 論文
-  - 關注 [LMSYS Chatbot Arena](https://chat.lmsys.org/) 排行榜
-  - 參與 GitHub 開源 Agent 項目
-
-### 產出
-
-✅ **Multi-Agent 協作系統** + **個人 AI 助手** + **論文閱讀筆記（持續更新）**
-
----
-
-## Stage 6 延伸：自我進化 Agent 架構師
-
-> **目標**：設計能自我評估、自我改進、自我進化的元 Agent 系統。
->
-> **這不再是「Agent 開發」，而是「Agent 進化生態系統的設計」。**
-
-### 核心概念：從「人驅動 Agent」到「Agent 驅動 Agent」
-
-```
-傳統 Agent 開發 (Stage 5)：
-  人類工程師 → 設計 Prompt → 選擇工具 → 配置評估 → 上線 → 人類監控調優
-
-自我進化 Agent (Stage 6)：
-  Meta-Agent → 自動設計子 Agent → 自動評估 → 自動優化 Prompt/Tool → 
-  持續監控 → 自我修正 → 越來越強
-```
-
-### 六大能力模塊
-
-#### S6.1 自我評估與錯誤修正
-
-基於 **Reflexion** 框架：Agent 分析自己的失敗案例，生成「經驗教訓」存入長期記憶，下次遇到類似場景自動應用。
-
-```python
-# Reflexion 僞代碼
-def agent_with_reflexion(task):
-    result = agent.execute(task)
-    if result.failed:
-        lesson = agent.analyze_failure(result)  # "我應該先查數據庫再調API"
-        memory.store(lesson)                     # 存爲長期經驗
-        result = agent.execute(task)             # 重試（這次會參考lesson）
-    return result
-```
-
-**關鍵技術**：
-- 自動迴歸測試：每次修改後跑測試集，發現退化自動回滾
-- 信心度校準：Agent 知道何時該請求人工介入
-- 失敗模式分類：將錯誤歸類爲「知識不足」「工具缺失」「推理錯誤」等
-
-#### S6.2 自主工具生成
-
-Agent 發現現有工具不足時，**自己寫新工具**並驗證可用性。
-
-```
-Agent 執行任務 → 發現缺工具 → 生成工具代碼 → 
-驗證 LLM 能否正確調用 → 加入工具庫 → 完成原任務
-```
-
-**關鍵指標**：工具生成成功率、LLM 調用準確率、工具使用頻率
-
-#### S6.3 動態 Prompt 優化（DSPy 方向）
-
-不手寫 Prompt，而是讓 Agent **通過測試數據自動搜索最優 Prompt**。
-
-```python
-# DSPy 核心思路
-import dspy
-
-class MyAgent(dspy.Module):
-    def __init__(self):
-        self.prompt = dspy.ChainOfThought("question -> answer")
-    
-    def forward(self, question):
-        return self.prompt(question=question)
-
-# 自動優化：跑測試集，找到最佳 Prompt 組合
-optimizer = dspy.BootstrapFewShot(metric=accuracy_metric)
-optimized_agent = optimizer.compile(MyAgent(), trainset=test_cases)
-```
-
-#### S6.4 強化學習驅動的 Agent 訓練
-
-| 技術 | 一句話 | 學習資源 |
-|---|---|---|
-| **GRPO** | 組內相對比較，無需 Critic 模型（DeepSeek-R1 用的方法） | [DeepSeek-R1 Paper](https://arxiv.org/abs/2501.12948) |
-| **DPO** | 偏好對比學習，比 RLHF 更穩定 | [DPO Paper](https://arxiv.org/abs/2305.18290) |
-| **RLHF** | 人類反饋強化學習 | [InstructGPT Paper](https://arxiv.org/abs/2203.02155) |
-
-#### S6.5 元 Agent 架構（Meta-Agent）
-
-```
-Meta-Agent（設計者 + 評估者 + 優化者）
-    │
-    ├── Agent 設計器：根據任務自動生成 Agent 配置
-    ├── Agent 評估器：自動化 Benchmark，產出效能報告  
-    └── Agent 優化器：基於報告自動調整配置
-```
-
-#### S6.6 持續學習管道
-
-- **經驗回放**：過往的成功和失敗案例 → 經驗庫
-- **課程學習**：簡單任務 → 逐步增加難度
-- **災難性遺忘防護**：學新任務不丟舊能力
-- **人機迴環**：關鍵決策保留人工審覈，比例隨 Agent 能力提升逐步降低
-
-### 練習項目
-
+- [ ] **練習 1**：[代碼軌] 實作一個 Reflexion 數學解答 Agent，在 3 輪反思後將準確率由 50% 提升至 75% 以上 / [低代碼軌] 實作 LangSmith 自動化測試集並設置評估護欄。
+- [ ] **練習 2**：使用 DSPy 自動優化一個 QA 系統的提示詞，比對優化前後的 Prompt 與準確率。
 - [ ] **項目 9**：**「自我改進的 Code Agent」**
-  - 初始 Agent：能做簡單的代碼審查
-  - 改進機制：每次審查後自動對比人類反饋，修正自己的審查規則
-  - 驗證：對比初始版本和訓練後的版本的審查準確率
-
+  - 初始 Agent 能做簡單代碼審查，每次審查後自動對比人類反饋，修正自己的審查規則。
 - [ ] **項目 10**：**「元 Agent — 自動生成客服 Agent」**
-  - 輸入：業務描述（如"處理電商退貨諮詢"）
-  - Meta-Agent 自動：設計 Prompt → 配置 RAG → 設置工具 → 測試
-  - 輸出：一個可用的客服 Agent + 評估報告
+  - 接受新任務指令，自動生成專用 Agent（含 System Prompt 與 Tool Set），並跑測試集達到 80% 以上成功率。
 
 ### 產出
-
-✅ **自我改進 Agent Demo** + **Meta-Agent 系統** + **Agent 評估報告**
-
-> 📖 **Stage 6 完整定義、六大核心能力詳解、通過標準、企業價值** → 見 [AI-Lab-成長等級制度.md - Stage 6](./AI-Lab-成長等級制度.md#-stage-6自我進化-agent-架構師-evolution-architect-)
+✅ **Reflexion 反思機制代碼** + **DSPy 編譯日誌** + **Meta-Agent 設計文件** + **自我改進的 Code Agent 專案**
 
 ---
-
 ## 📚 學習資源彙總
 
 ### 必讀開源項目

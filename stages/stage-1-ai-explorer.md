@@ -199,40 +199,33 @@ B. 加上「請一步步思考，寫出每個步驟的計算過程」
 模板 3：自選場景（如：讀書摘要、會議記錄整理、程式碼解釋）
 ```
 
-### 練習 4：Function Calling 初體驗（1 小時）
+### 練習 4：Function Calling 初體驗 (免代碼網頁版)
 
-**目標**：親手讓 AI 自動決定「何時需要調用外部函數」。
+**目標**：親手讓 AI 自動決定「何時需要調用外部函數」，理解決策邏輯。
 
-```python
-# 用 Python 呼叫 OpenAI API 的 Function Calling
-import openai
-
-tools = [{
-    "type": "function",
-    "function": {
-        "name": "get_current_time",
-        "description": "取得目前的日期和時間",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "timezone": {
-                    "type": "string",
-                    "description": "時區，例如 Asia/Taipei"
-                }
-            }
-        }
-    }
-}]
-
-response = openai.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[{"role": "user", "content": "現在幾點？"}],
-    tools=tools
-)
-
-# 觀察 response 中是否包含 tool_calls
-print(response.choices[0].message.tool_calls)
-```
+**步驟**：
+1. 打開 **OpenAI Playground** (https://platform.openai.com/playground)
+2. 在右側選擇模型 (如 `gpt-4o-mini`)，並在 **Tools** 區塊點擊 **Add Function**。
+3. 輸入以下格式定義 (JSON Schema)：
+   ```json
+   {
+     "name": "get_current_time",
+     "description": "取得目前的日期與時間",
+     "parameters": {
+       "type": "object",
+       "properties": {
+         "timezone": {
+           "type": "string",
+           "description": "時區，例如 Asia/Taipei"
+         }
+       }
+     }
+   }
+   ```
+4. 在對話框輸入：「現在幾點？」
+5. **觀察結果**：模型不會直接回覆，而是會輸出一個「呼叫 get_current_time」的通知。
+6. **人工模擬**：在彈出的視窗中輸入模擬時間（例如 `{"time": "12:00"}`），點擊送出。
+7. **最終觀察**：模型接收到你模擬的數據後，給出「現在是中午 12 點」的對話回覆。
 
 ---
 
@@ -244,7 +237,7 @@ print(response.choices[0].message.tool_calls)
 - [ ] Prompt 範本必須包含：Role + Task + Format + Constraints 至少四個元素
 - [ ] 能解釋 CoT 的原理，並用一個例子展示效果差異
 - [ ] 完成 Prompt 模板庫（至少 3 個模板）
-- [ ] 成功運行 Function Calling Demo，並能解釋 AI 決定調用工具的邏輯
+- [ ] 成功運行 Function Calling 模擬（Playground 界面或 API），並能解釋 AI 決定調用工具的邏輯
 
 **軟性指標**：
 
