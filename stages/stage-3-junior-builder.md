@@ -31,6 +31,13 @@
 - ✅ 有 GitHub 帳號並知道基本的 git 指令
 - ✅ Python 環境已安裝（建議 3.10+）
 
+> [!TIP]
+> **Python 與開發環境快速排錯檢核表 (Troubleshooting Checklist)**：
+> - **Python 安裝**：在終端機執行 `python --version`。如果系統找不到指令，請確保在 Windows 安裝時勾選了 "Add Python to PATH" 選項。
+> - **虛擬環境**：開發 Python 專案時，務必在專案根目錄下執行 `python -m venv .venv` 建立虛擬環境，並使用 `source .venv/bin/activate` (Mac/Linux) 或 `.\.venv\Scripts\Activate.ps1` (Windows PowerShell) 啟用。
+> - **套件安裝**：若執行 `pip` 報錯，可嘗試使用 `python -m pip install <package_name>`。
+> - **環境變數安全**：嚴禁將 API Key 寫死在代碼中！請使用 `.env` 檔案儲存，並使用 `python-dotenv` 庫讀取。
+
 ---
 
 ## 🧠 知識點清單
@@ -157,6 +164,52 @@ def get_stock_price(symbol: str) -> str:
 
 ## 💪 練習項目
 
+### 練習 0：Python Function Calling 程式碼過渡
+
+**目標**：在本地環境運行第一個 Python 程式，並透過 Python 代碼觸發 Function Calling。
+
+**步驟**：
+1. 建立一個專案資料夾並開啟虛擬環境。
+2. 安裝官方 OpenAI 套件：`pip install openai`。
+3. 建立 `function_call.py` 檔案並寫入以下程式碼：
+   ```python
+   import openai
+   import os
+
+   # 確保已將 API 金鑰設置為環境變數
+   client = openai.OpenAI()
+
+   tools = [{
+       "type": "function",
+       "function": {
+           "name": "get_current_time",
+           "description": "取得目前的日期和時間",
+           "parameters": {
+               "type": "object",
+               "properties": {
+                   "timezone": {
+                       "type": "string",
+                       "description": "時區，例如 Asia/Taipei"
+                   }
+               }
+           }
+       }
+   }]
+
+   response = client.chat.completions.create(
+       model="gpt-4o-mini",
+       messages=[{"role": "user", "content": "現在幾點？"}],
+       tools=tools
+   )
+
+   # 觀察 response 中是否包含 tool_calls
+   print("AI 決策回傳的工具呼叫資料：")
+   print(response.choices[0].message.tool_calls)
+   ```
+4. 執行代碼：`python function_call.py`，驗證輸出是否包含 `tool_calls`。
+
+---
+
 ### 練習 1：Hello Agent（1 小時）
 
 **目標**：用 LangChain 建立第一個會用工具的 Agent。
@@ -218,35 +271,57 @@ Tool 3：檔案讀取（讀取本地文字檔）
 
 ### 練習 4（專案 A）：AI 程式碼助手 Agent（4 小時）
 
-**目標**：做一個能分析程式碼的 Agent。
+**場景**：你接手了一個舊專案，沒有人告訴你程式碼是怎麼寫的。你需要一個 Agent 幫你「讀懂這堆程式碼」。
 
-```
-工具集：
-- read_file：讀取檔案
-- search_code：搜尋程式碼關鍵字
-- run_shell：執行指令（需安全沙箱）
-- explain_code：用 LLM 解釋一段程式碼
+**給定資源**：使用任意一個 GitHub 開源 Python 專案（建議：[FastAPI 官方範例](https://github.com/fastapi/fastapi/tree/master/docs_src)，約 500 行程式碼，下載到本地資料夾即可）。
 
-能力：使用者說「幫我找到這個專案裡所有 API 呼叫的地方，檢查有沒有錯誤處理」
-Agent 自己：讀檔案 → 搜尋 → 分析 → 回報結果
-```
+**工具集**：
+- `read_file`：讀取指定檔案
+- `search_code`：在專案中搜尋關鍵字（如 `@app.get`、`SQL`、`password`）
+- `run_shell`：在安全沙箱內執行指令（如 `grep`、`wc -l`）
+- `explain_code`：用 LLM 解釋一段程式碼的功能和邏輯
 
-### 練習 5（專案 B）：第一個全棧應用（8 小時）
+**驗收清單**（做完一項勾一項）：
+- [ ] Agent 能接收「列出這個專案中所有 API endpoint」指令，並回傳正確清單（含 HTTP 方法和路徑）
+- [ ] Agent 能接收「檢查 xxx.py 中是否有 SQL injection 風險」指令，並回傳分析結果
+- [ ] Agent 能接收「這段程式碼在做什麼？」並用人話解釋（給定行號範圍）
+- [ ] Agent 能接收「這個專案用了哪些第三方套件？」並從 `requirements.txt` 或 `pyproject.toml` 中提取
+- [ ] 所有 Tool 呼叫過程都有 Log 記錄（時間戳 + Tool 名稱 + 參數 + 回傳結果）
+- [ ] 能輸出一個 Markdown 格式的「專案分析報告」（含 API 清單、潛在安全問題、依賴套件列表）
 
-**目標**：用 AI 輔助，從零打造一個完整的全棧應用。
+**技術棧延續**：這個 Agent 的 Tool 集合和 Log 機制，將直接用在專案 B 中作為內嵌 AI 功能。
 
-```
-要求（全部用 AI 輔助完成，但你要理解每一層在做什麼）：
+### 練習 5（專案 B）：AI 增強型筆記應用（8 小時）
 
-功能：簡單的筆記應用
-- 前端：React + Tailwind CSS
-- 後端：FastAPI (Python)
-- 資料庫：Supabase (PostgreSQL)
-- 認證：Supabase Auth（Google 登入）
-- 部署：前端 Vercel + 後端 Render
+**場景**：做一個筆記應用，但它不只是 CRUD——你的筆記應用裡內嵌了專案 A 的「程式碼助手 Agent」作為一個「AI 筆記助理面板」。使用者可以選中一段筆記文字，點擊「AI 分析」按鈕，讓 Agent 自動摘要、翻譯、或根據內容生成待辦事項。
 
-使用者可以：註冊 → 登入 → 新增/編輯/刪除筆記
-```
+**核心功能**：
+1. 使用者註冊 / 登入（Google OAuth）
+2. 新增 / 編輯 / 刪除筆記（支援 Markdown 語法）
+3. 筆記列表頁（按更新時間排序）
+4. **AI 助理面板**：選中一段筆記文字 → 點擊「AI 分析」→ Agent 回傳處理結果（摘要 / 翻譯 / 生成待辦事項）
+5. AI 助理的回應以卡片形式展示，可一鍵插入筆記
+
+**技術棧**：
+| 層級 | 技術 | 說明 |
+|---|---|---|
+| 前端 | Next.js (App Router) + Tailwind CSS + shadcn/ui | 現代 React 全棧框架 |
+| 後端 API | FastAPI (Python) | 提供筆記 CRUD + AI 分析端點 |
+| 資料庫 | Supabase (PostgreSQL) | 儲存使用者、筆記、AI 分析歷史 |
+| 認證 | Supabase Auth（Google 登入） | 零配置 OAuth |
+| AI 層 | LangChain Agent（從專案 A 延伸） | 內嵌 AI 助理邏輯 |
+| 部署 | 前端 Vercel + 後端 Render | 免費層即可 |
+
+**驗收清單**（做完一項勾一項）：
+- [ ] 任何人可透過公開 URL 訪問應用（註冊 / 登入 / 使用）
+- [ ] 筆記 CRUD 功能完整（新增時支援 Markdown，檢視時渲染為 HTML）
+- [ ] AI 助理面板能接收一段文字輸入，並在 10 秒內回傳 AI 處理結果
+- [ ] AI 助理至少支援 2 種操作模式（如：摘要 + 翻譯）
+- [ ] 所有資料庫操作有基本錯誤處理（不 Crash，顯示友善錯誤訊息）
+- [ ] GitHub README 包含：應用截圖（至少 3 張）+ 架構圖 + 本地運行步驟（5 步驟內）
+- [ ] AI 助理的請求有 loading 狀態顯示（不是白畫面等待）
+
+**通過門檻**：以上 7 項全部完成才算通過。
 
 ---
 
