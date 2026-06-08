@@ -1,6 +1,9 @@
 # WorkBuddy project metadata
 .workbuddy/
 
+# PR and internal docs (not part of content)
+.pr/
+
 # OS files
 .DS_Store
 Thumbs.db

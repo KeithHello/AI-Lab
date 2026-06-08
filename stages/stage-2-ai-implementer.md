@@ -62,6 +62,27 @@
 | **Lovable** | 零代碼 | 像 v0 但生成的程式碼更完整 | 完整前端應用 |
 | **Replit Agent** | 零代碼 | 在 Replit 中直接生成全棧應用 | 快速上線 MVP |
 
+```mermaid
+flowchart TD
+    Q["我想做一個什麼樣的東西？"]
+    Q --> A["只有前端畫面<br/>Landing Page / 個人網站"]
+    Q --> B["完整應用<br/>有登入、存資料"]
+    Q --> C["修改現有程式碼<br/>除錯、加功能"]
+    Q --> D["搭建 AI Agent<br/>聊天機器人 / 客服"]
+
+    A --> A1["v0.dev<br/>一鍵生成 UI，文字描述即可"]
+    A --> A2["Lovable<br/>更完整的網頁應用"]
+
+    B --> B1["bolt.new<br/>全棧原型（含後端）"]
+    B --> B2["Replit Agent<br/>快速 MVP"]
+
+    C --> C1["Cursor<br/>AI IDE，對話式改程式碼"]
+    C --> C2["Windsurf<br/>Cursor 替代方案"]
+
+    D --> D1["Coze<br/>快速搭建，發布到通訊軟體"]
+    D --> D2["Dify<br/>開源可私有部署，進階工作流"]
+```
+
 ### 3. 基礎網頁概念（不用精通，但要認識）
 
 | 概念 | 一句話解釋 |
@@ -93,6 +114,31 @@
 | Workflow（工作流） | LangGraph StateGraph |
 | Variable（變數） | State |
 | Node（節點） | LangChain Runnable |
+
+```mermaid
+flowchart LR
+    subgraph LowCode["低代碼平台 (Coze / Dify)"]
+        P["Plugin 插件"]
+        K["Knowledge 知識庫"]
+        W["Workflow 工作流"]
+        V["Variable 變數"]
+        N["Node 節點"]
+    end
+
+    subgraph Code["代碼層 (LangChain / LangGraph)"]
+        T["Tool / Function"]
+        R["RAG: Indexing + Retrieval"]
+        SG["LangGraph StateGraph"]
+        S["State"]
+        RN["LangChain Runnable"]
+    end
+
+    P -->|"對應"| T
+    K -->|"對應"| R
+    W -->|"對應"| SG
+    V -->|"對應"| S
+    N -->|"對應"| RN
+```
 
 ---
 
@@ -192,6 +238,51 @@ Prompt 範例：
 生成後嘗試：修改介面、加入分類功能、加入截止日期
 ```
 
+### 練習 5：Stage 3 入門準備 — 技術地基搭建（3 小時）🆕
+
+> **為什麼需要這個練習**：Stage 3 要求你具備全棧開發能力（前端+後端+DB+部署）。如果你直接從 Vibe Coding 跳進去，會感到巨大的技術落差。這個練習幫你在進入 Stage 3 前，把必備的「技術地基」先打好。
+
+**目標**：在進入 Stage 3 之前，確保你能獨立完成以下 5 件事。不需要精通，只要「跑得通」。
+
+**五步地基檢查**（做完一項勾一項）：
+
+- [ ] **步驟 1：Python 環境就緒（30 分鐘）**
+  - 下載安裝 Python 3.10+（[python.org](https://www.python.org/)）
+  - 打開終端機（Windows: PowerShell / Mac: Terminal），輸入 `python --version` 確認版本
+  - 安裝 VS Code 或 Cursor，建立第一個 `.py` 檔案，寫 `print("Hello AI Lab")` 並執行成功
+
+- [ ] **步驟 2：理解 API 的實際運作（30 分鐘）**
+  - 用瀏覽器打開這個網址：`https://api.github.com/users/KeithHello`
+  - 你會看到一堆 JSON 文字——這就是 API 的回應
+  - 用 AI 輔助寫一個 10 行的 Python 腳本，呼叫這個 API 並印出 `name` 和 `public_repos` 兩個欄位
+  - 執行腳本，確認你能「從程式碼中獲取外部資料」
+
+- [ ] **步驟 3：理解前端如何呼叫後端（30 分鐘）**
+  - 用 AI（Cursor/Claude）生成一個最簡的 HTML 頁面（`index.html`）
+  - 頁面只有一個按鈕：「點我取得 GitHub 用戶資料」
+  - 點擊後，JavaScript 呼叫步驟 2 的同一個 API，把 `name` 顯示在頁面上
+  - 用瀏覽器打開這個 `index.html`，確認按鈕可以運作
+  - **核心理解**：前端（HTML/JS）→ 呼叫 API → 獲取資料 → 顯示給使用者
+
+- [ ] **步驟 4：Git 基礎操作（30 分鐘）**
+  - 安裝 Git（[git-scm.com](https://git-scm.com/)）
+  - 在終端機中依序執行以下指令（理解每步在做什麼）：
+    ```
+    git init                          # 初始化一個 Git 倉庫
+    git add .                         # 把所有檔案加入追蹤
+    git commit -m "我的第一個 commit"   # 建立一個版本快照
+    ```
+  - 註冊 GitHub 帳號，創建一個新倉庫
+  - 把本地倉庫 push 到 GitHub（用 AI 輔助完成）
+
+- [ ] **步驟 5：理解資料庫的概念（30 分鐘）**
+  - 用 AI 解釋：「什麼是資料庫？為什麼網頁應用需要它？」
+  - 註冊 Supabase 免費帳號（[supabase.com](https://supabase.com/)）
+  - 在 Supabase 中建立一個「test」表格，手動加入 2 筆資料
+  - 用 Supabase 提供的 API URL 在瀏覽器中查詢這些資料（類似步驟 2）
+
+**通過標準**：5 個步驟全部完成。如果你卡在任何一步超過 30 分鐘，用 AI 輔助排查——這本身就是 Stage 3 的重要技能。
+
 ---
 
 ## 🏅 通過標準
@@ -201,6 +292,7 @@ Prompt 範例：
 - [ ] 運用 Vibe Coding 工具，獨立產出 **1 個**具備基本互動、外觀完整的產品原型
 - [ ] 成品必須包含：多個頁面或區塊 + 使用者互動（點擊/輸入） + 基本的美觀設計
 - [ ] 在 Coze 或 Dify 上搭建 1 個完整可運行的 Agent Bot
+- [ ] 完成「練習 5：Stage 3 入門準備」全部 5 個步驟（Python環境/API理解/前端後端/Git/資料庫概念）
 - [ ] 完成 1 份「Vibe Coding 實戰筆記」（記錄用了哪些工具、遇到什麼坑、學到什麼）
 
 **軟性指標**：

@@ -90,13 +90,13 @@
 
 #### 1.1 Agent 的定義與核心循環
 
-```
-┌────────────────────────────────────────────────────────────────────┐
-│         Agent 核心循環                                              │
-│                                                                    │
-│  感知(Perceive) → 思考(Think) → 行動(Act) → 觀察(Observe) → 循環...  │
-│                                                                    │
-└────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    P["👁️ 感知 Perceive<br/>獲取輸入+工具結果"] --> T["🧠 思考 Think<br/>LLM 推理決策"]
+    T --> A["🛠️ 行動 Act<br/>呼叫工具/生成回應"]
+    A --> O["👀 觀察 Observe<br/>檢查結果"]
+    O -->|"未達成"| T
+    O -->|"已達成"| DONE["✅ 完成"]
 ```
 
 - **Perceive**：獲取環境信息（用戶輸入、工具返回、上下文）
@@ -116,14 +116,39 @@
 | Constraints & Rules | 行爲約束 | "不要編造數據。如果沒有找到答案，誠實告知。" |
 | Output Format | 期望的輸出格式 | "最終回覆使用 Markdown 表格呈現" |
 
+```mermaid
+flowchart TD
+    ROLE["1. Role & Persona<br/>定義身份和邊界"] --> TASK["2. Task Definition<br/>明確的任務目標"]
+    TASK --> TOOLS["3. Tool Descriptions<br/>告訴模型可用工具"]
+    TOOLS --> CONSTRAINTS["4. Constraints & Rules<br/>行為約束"]
+    CONSTRAINTS --> FORMAT["5. Output Format<br/>期望的輸出格式"]
+    FORMAT --> SYSTEM["完整 System Prompt<br/>發送給 LLM"]
+
+    style ROLE fill:#EEEDFE,stroke:#534AB7
+    style TASK fill:#E6F1FB,stroke:#378ADD
+    style TOOLS fill:#E1F5EE,stroke:#1D9E75
+    style CONSTRAINTS fill:#FAEEDA,stroke:#EF9F27
+    style FORMAT fill:#FAECE7,stroke:#D85A30
+    style SYSTEM fill:#EAF3DE,stroke:#639922
+```
+
 #### 1.3 Function Calling / Tool Use
 
 這是 Agent 和 Chatbot 最大的分水嶺——**Agent 會調用工具**。
 
-**完整流程**：
-```
-用戶提問 → LLM 判斷需要用哪個工具 → 返回 function_call → 
-你的代碼執行這個函數 → 將結果傳回 LLM → LLM 基於結果生成最終回覆
+```mermaid
+sequenceDiagram
+    participant User as 👤 使用者
+    participant LLM as 🧠 LLM
+    participant Code as ⚙️ 你的程式碼
+    participant Tool as 🔧 外部工具
+
+    User->>LLM: "今天台北天氣如何？"
+    LLM->>Code: 回傳 function_call<br/>get_weather(city="台北")
+    Code->>Tool: 執行 get_weather("台北")
+    Tool-->>Code: { temp: 28, condition: "晴" }
+    Code->>LLM: 傳回工具執行結果
+    LLM->>User: "台北今天晴天，28°C"
 ```
 
 ### 練什麼
