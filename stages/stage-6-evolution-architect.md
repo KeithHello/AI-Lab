@@ -11,7 +11,7 @@
 | **階段定位** | AI Lab 的最高殿堂——從「人驅動 Agent」進化到「Agent 驅動 Agent」 |
 | **上一階段** | [Stage 5：高階 AI 架構師](./stage-5-senior-builder.md) |
 | **下一階段** | 無（目前最高等級，但你永遠可以比今天更強） |
-| **對應 Roadmap** | [Stage 6 延伸](../AI-Agent-學習路線圖.md#stage-6-延伸自我進化-agent-架構師) |
+| **對應 Roadmap** | [Phase 6：自我進化 Agent 架構師](../AI-Agent-學習路線圖.md#phase-6自我進化-agent-架構師--dspy-meta-agent-rl6-8-周) |
 | **建議學習時間** | 持續進行的長期目標，核心週期約 6-8 週 |
 
 ### 你在這個階段的畫像

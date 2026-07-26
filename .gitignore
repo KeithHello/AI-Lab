@@ -3,6 +3,10 @@
 
 # PR and internal docs (not part of content)
 .pr/
+analysis-*.md
+*.analysis.md
+internal-notes/
+docs/ai-lab-showcase/*.md
 
 # OS files
 .DS_Store

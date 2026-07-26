@@ -11,7 +11,7 @@
 | **階段定位** | Agent 開發的集大成——從「寫一個 Agent」到「設計一套 Agent 系統」 |
 | **上一階段** | [Stage 3](./stage-3-junior-builder.md) 或 [Stage 4](./stage-4-workflow-specialist.md) |
 | **下一階段** | [Stage 6：自我進化 Agent 架構師](./stage-6-evolution-architect.md) |
-| **對應 Roadmap** | [Phase 4：RAG & Memory](../AI-Agent-學習路線圖.md#phase-4rag--memory--給-agent-裝上大腦2-3-周) + [Phase 6：Multi-Agent](../AI-Agent-學習路線圖.md#phase-6multi-agent--前沿--追平業界持續) |
+| **對應 Roadmap** | [Phase 5：生產級 & 高階 Agent 架構](../AI-Agent-學習路線圖.md#phase-5生產級--高階-agent-架構--rag-memory-langgraph3-4-周) |
 | **建議學習時間** | 5-7 週（衝刺型）/ 8-12 週（穩健型） |
 
 ### 你在這個階段的畫像

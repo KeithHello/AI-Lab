@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Lab 🔗 Stage 4：流程自動化專家 完整課程展示頁面。">
+  <title>🔗 Stage 4：流程自動化專家 — AI Lab 課程展示</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="../index.html" class="brand-title"><span>🤖</span> AI Lab 成果展示</a>
+      <div class="brand-subtitle">Stage 4 課程頁面</div>
+    </div>
+    <nav class="nav-scroll" aria-label="頁面導覽">
+      <a href="../index.html" class="nav-chip">← 返回成果首頁</a>
+      <a href="#positioning" class="nav-chip">階段定位</a>
+      <a href="#prerequisites" class="nav-chip">前置條件</a>
+      <a href="#knowledge" class="nav-chip">知識點</a>
+      <a href="#skills" class="nav-chip">技能與工具</a>
+      <a href="#practices" class="nav-chip">實作練習</a>
+      <a href="#criteria" class="nav-chip">通關標準</a>
+      <a href="#resources" class="nav-chip">推薦資源</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-tag">Stage 4 完整課程內容</span>
+      <h1>🔗 Stage 4：流程自動化專家</h1>
+      <p>打破軟體孤島，打造全自動流程</p>
+      <div class="meta-bar">
+        <div class="meta-item"><strong>2-3 週</strong><span>建議學習時間</span></div>
+        <div class="meta-item"><strong>Phase 4：流程自動化</strong><span>對應路線階段</span></div>
+        <div class="meta-item"><strong>手機版網頁</strong><span>完整預覽（無 .md 連結）</span></div>
+      </div>
+    </section>
+
+    
+    <section id="positioning" class="section-card">
+      <div class="section-header"><div class="section-num">1</div><h2 class="section-title">階段定位與目標</h2></div>
+      <div class="callout callout-info"><strong>一句話定義：</strong>企業數位轉型的核心推手。不迷信單一軟體，而是專精於打破「軟體孤島」，將企業碎片化的工具串聯成「免人工干預」的完全自動化流程。</div>
+      <div class="subcard">
+        <h4>你在這個階段的畫像</h4>
+        <p>你發現許多企業的問題不是「缺軟體」，而是「軟體之間不溝通」；你在企業內部看到大量重複的人工作業（複製貼上、Excel 報表、Email 通知）。這個階段的目標：讓流程跑得比人快、比人準、而且 24 小時不休息。</p>
+      </div>
+    </section>
+
+    <section id="prerequisites" class="section-card">
+      <div class="section-header"><div class="section-num">2</div><h2 class="section-title">前置條件</h2></div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>已完成 Stage 2 或 Stage 3</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>理解 API 是什麼（會看文件、知道呼叫方式）</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>知道 JSON 格式並能看懂基本結構</div></li>
+      </ul>
+    </section>
+
+    <section id="knowledge" class="section-card">
+      <div class="section-header"><div class="section-num">3</div><h2 class="section-title">知識點與架構</h2></div>
+      <details open>
+        <summary><span>1. 自動化思維與 6 步設計流程</span><span class="badge badge-completed">思維</span></summary>
+        <div class="details-content">
+          <p><strong>判斷標準（值得自動化）：</strong>高頻（每天/每週）、規則明確、重複性高、人為出錯代價高、ROI 符合預估。</p>
+          <p><strong>6 步設計：</strong> 1. 觀察 ──→ 2. 記錄 ──→ 3. 拆解 ──→ 4. 建構 ──→ 5. 測試 ──→ 6. 監控。</p>
+        </div>
+      </details>
+
+      <details open>
+        <summary><span>2. 工具與技術要點</span><span class="badge badge-completed">技術</span></summary>
+        <div class="details-content">
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>工具</th><th>說明</th><th>技術要點</th></tr></thead>
+              <tbody>
+                <tr><td>Make.com</td><td>SaaS 自動化，視覺化拖拽</td><td>Webhook 非同步觸發</td></tr>
+                <tr><td>n8n</td><td>開源可私有部署，節點最豐富</td><td>JSON 欄位解析與轉換</td></tr>
+                <tr><td>Zapier</td><td>整合最多 SaaS 平台</td><td>Router 條件分支與 Filter</td></tr>
+                <tr><td>Activepieces</td><td>輕量級開源替代方案</td><td>Error Handler 與 Retry 重試機制</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="skills" class="section-card">
+      <div class="section-header"><div class="section-num">4</div><h2 class="section-title">技能要求與推薦工具</h2></div>
+      <div class="grid-2">
+        <div class="subcard"><h4>🛠️ 硬技能</h4><p>Make.com / n8n 流程設計、Webhook 設定、JSON 處理、REST API 串接、Router 分支邏輯、Error Handling 備案流程。</p></div>
+        <div class="subcard"><h4>💡 軟技能</h4><p>流程分析（發現重複模式）、需求訪談（提取業務痛點）、成本意識（計算自動化 ROI）。</p></div>
+      </div>
+    </section>
+
+    <section id="practices" class="section-card">
+      <div class="section-header"><div class="section-num">5</div><h2 class="section-title">實作練習與大型專案</h2></div>
+      <div class="process-flow">
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 1：第一個自動化流程（2 小時）</span><span class="step-actor">Make</span></div><div class="step-desc">Gmail 收到標籤郵件 → 篩選「訂單」主旨 → 寫入 Google Sheets → 發送 Slack 通知。</div></div>
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 2：跨平台自動化（3 小時）</span><span class="step-actor">LINE+AI</span></div><div class="step-desc">LINE 收到訊息 → 條件判斷「查詢庫存」→ 查 Google Sheets → 呼叫 ChatGPT 生成回覆 → LINE Bot 回覆。</div></div>
+        <div class="flow-step" style="border-left-color: var(--primary);"><div class="step-head"><span class="step-title">練習 3（專案 A）：自動商機追蹤與合約生成（5 小時）</span><span class="step-actor">專案 A</span></div><div class="step-desc">HubSpot 新商機 → 匹配 Sheets 價格 → AI 生成 Google Docs 合約 → 自動寄 Email PDF → 超額通知經理。</div></div>
+        <div class="flow-step" style="border-left-color: var(--primary);"><div class="step-head"><span class="step-title">練習 4（專案 B）：多平台客服派單與庫存同步（5 小時）</span><span class="step-actor">專案 B</span></div><div class="step-desc">整合 LINE / Email / 官網表單 → AI 問題分類 → 退換貨查庫存／客訴轉主管／大單轉業務 → 歸檔 Sheets。</div></div>
+      </div>
+    </section>
+
+    <section id="criteria" class="section-card">
+      <div class="section-header"><div class="section-num">6</div><h2 class="section-title">通關標準與升階條件</h2></div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>獨立交付 2 個針對真實企業痛點的端到端完全自動化流程</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>流程包含：觸發器 + 條件分支 + 多重資料轉換 + 錯誤處理 + 通知機制</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>涵蓋至少 3 個不同平台的串接（如 Email + Sheets + LINE）</div></li>
+      </ul>
+      <div class="callout callout-success">
+        <strong>下一步：</strong>進入 Stage 5 高階 AI 架構師，將自動化流程升級為會自主決策的 AI Agent 系統。
+      </div>
+    </section>
+
+    <section id="resources" class="section-card">
+      <div class="section-header"><div class="section-num">7</div><h2 class="section-title">推薦學習資源</h2></div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>資源</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>Make Academy</td><td>Make.com 官方免費課程</td></tr>
+            <tr><td>n8n 官方文件</td><td>完整節點和流程指南</td></tr>
+            <tr><td>Zapier Learning Center</td><td>自動化基礎知識與模板</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <nav class="stage-nav">
+      <a href="stage-3.html" class="stage-nav-btn">← 上一階段</a>
+      <a href="../index.html" class="stage-nav-btn">返回成果首頁</a>
+      <a href="stage-5.html" class="stage-nav-btn">下一階段 →</a>
+    </nav>
+  </main>
+
+  <footer>
+    AI Lab 課程展示 — 手機版頁面<br>
+    內容來源：stages/stage-4-workflow-specialist.md（純文字標記，無原始檔連結）
+  </footer>
+</body>
+</html>

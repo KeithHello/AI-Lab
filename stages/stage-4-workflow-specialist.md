@@ -11,7 +11,7 @@
 | **階段定位** | 非技術背景的加速通道——用低代碼工具實現企業級自動化，無需深入程式碼 |
 | **上一階段** | [Stage 2：AI 實踐者](./stage-2-ai-implementer.md) 或 [Stage 3](./stage-3-junior-builder.md) |
 | **下一階段** | [Stage 5：高階 AI 架構師](./stage-5-senior-builder.md) |
-| **對應 Roadmap** | [Phase 5：生產級（自動化方向）](../AI-Agent-學習路線圖.md#phase-5生產級-agent--從-demo-到產品3-4-周) |
+| **對應 Roadmap** | [Phase 4：流程自動化專家](../AI-Agent-學習路線圖.md#phase-4流程自動化專家--打破軟體孤島2-3-周) |
 | **建議學習時間** | 2-3 週（衝刺型）/ 4-6 週（穩健型） |
 
 ### 你在這個階段的畫像
