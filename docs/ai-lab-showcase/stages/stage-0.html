@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Lab ⛩️ Stage 0：AI 新手村 完整課程展示頁面。">
+  <title>⛩️ Stage 0：AI 新手村 — AI Lab 課程展示</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="../index.html" class="brand-title"><span>🤖</span> AI Lab 成果展示</a>
+      <div class="brand-subtitle">Stage 0 課程頁面</div>
+    </div>
+    <nav class="nav-scroll" aria-label="頁面導覽">
+      <a href="../index.html" class="nav-chip">← 返回成果首頁</a>
+      <a href="#positioning" class="nav-chip">階段定位</a>
+      <a href="#prerequisites" class="nav-chip">前置條件</a>
+      <a href="#knowledge" class="nav-chip">知識點</a>
+      <a href="#skills" class="nav-chip">技能與工具</a>
+      <a href="#practices" class="nav-chip">實作練習</a>
+      <a href="#criteria" class="nav-chip">通關標準</a>
+      <a href="#resources" class="nav-chip">推薦資源</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-tag">Stage 0 完整課程內容</span>
+      <h1>⛩️ Stage 0：AI 新手村</h1>
+      <p>消除恐懼，建立人機協作思維</p>
+      <div class="meta-bar">
+        <div class="meta-item"><strong>1-2 天</strong><span>建議學習時間</span></div>
+        <div class="meta-item"><strong>Phase 0：前置知識補漏</strong><span>對應路線階段</span></div>
+        <div class="meta-item"><strong>手機版網頁</strong><span>完整預覽（無 .md 連結）</span></div>
+      </div>
+    </section>
+
+    
+    <section id="positioning" class="section-card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <h2 class="section-title">階段定位與目標</h2>
+      </div>
+      <div class="callout callout-info">
+        <strong>一句話定義：</strong>零基礎、對 AI 充滿渴望的萌新起跑點。核心任務是消除技術恐懼，建立 AI 時代的「人機協作思維」。
+      </div>
+      <div class="subcard">
+        <h4>你在這個階段的畫像</h4>
+        <p>你可能剛聽說 ChatGPT，或已經用了幾次但不知道它到底能做什麼；你對 AI 感興趣，但覺得「那是工程師的事」；你可能有點害怕——害怕被 AI 取代，或害怕自己學不會。<strong>好消息：</strong>這些恐懼在這個階段結束後都會消失。</p>
+      </div>
+    </section>
+
+    <section id="prerequisites" class="section-card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <h2 class="section-title">前置條件</h2>
+      </div>
+      <div class="callout callout-success">
+        <strong>進入 Stage 0 只需要一件事：</strong>你有一台能上網的電腦或手機。不需要任何程式背景、不需要數學基礎、不需要買任何東西。
+      </div>
+    </section>
+
+    <section id="knowledge" class="section-card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <h2 class="section-title">知識點與架構</h2>
+      </div>
+
+      <details open>
+        <summary><span>1. 什麼是生成式 AI？</span><span class="badge badge-completed">核心概念</span></summary>
+        <div class="details-content">
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>概念</th><th>一句話解釋</th></tr></thead>
+              <tbody>
+                <tr><td>AI (Artificial Intelligence)</td><td>讓電腦模擬人類智慧的技術</td></tr>
+                <tr><td>機器學習 (Machine Learning)</td><td>從資料中學習規律，而非人工編寫規則</td></tr>
+                <tr><td>深度學習 (Deep Learning)</td><td>用多層神經網路處理複雜問題</td></tr>
+                <tr><td>生成式 AI (Generative AI)</td><td>能創造新內容（文字、圖片、程式碼）的 AI</td></tr>
+                <tr><td>大語言模型 (LLM)</td><td>專注於理解和生成人類語言的超大規模模型</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details open>
+        <summary><span>2. LLM 的 4 個核心概念</span><span class="badge badge-completed">必懂基礎</span></summary>
+        <div class="details-content">
+          <ul class="checklist">
+            <li class="checklist-item"><span class="checklist-icon">🔤</span><div><strong>Token</strong><br>模型怎麼「讀」文字？中文 1 字 ≈ 1-2 Token，英文 1 字 ≈ 1 Token。影響成本和輸入上限。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">📦</span><div><strong>Context Window</strong><br>一次能餵給模型多少內容？最稀缺的資源，超出的內容會被「忘記」。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">🌡️</span><div><strong>Temperature</strong><br>控制輸出的創意程度。0 = 保守精確，1 = 創意天馬行空。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">👻</span><div><strong>幻覺 (Hallucination)</strong><br>AI 為什麼會一本正經胡說八道？LLM 的本質是「預測下一個字」，而非「查詢事實」。</div></li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary><span>3. 主流 AI 工具地圖与能/不能做的事</span><span class="badge badge-progress">工具選擇</span></summary>
+        <div class="details-content">
+          <p><strong>主流工具：</strong>ChatGPT（全能通用）、Claude（長文分析）、Gemini（Google 生態）、DeepSeek（高 CP 值開源）、Perplexity（AI 搜尋引擎）、NotebookLM（個人文件問答）、Copilot（寫程式助手）。</p>
+          <div class="callout callout-info">
+            <strong>✅ 擅長的事：</strong>文字生成、摘要與翻譯、程式碼生成與除錯、頭腦風暴、問答與解釋概念。<br>
+            <strong>❌ 不擅長／要小心的事：</strong>保證 100% 事實準確、即時未聯網事件、複雜數學計算、替代人類決策。
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="skills" class="section-card">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <h2 class="section-title">技能要求與推薦工具</h2>
+      </div>
+      <div class="grid-2">
+        <div class="subcard">
+          <h4>🛠️ 硬技能</h4>
+          <p>工具帳號配置（註冊 ChatGPT/Claude）、基礎對話（自然語言問答）、Prompt 基礎（知道好壞提問差別）、Token 估算（用 Tokenizer 估算成本）。</p>
+        </div>
+        <div class="subcard">
+          <h4>💡 軟技能與心態</h4>
+          <p>好奇心（願意對 AI 提問）、批判性思考（不盲信 AI 回答）、迭代心態（第一次回答不好就換個方式問）。</p>
+        </div>
+      </div>
+      <h4 style="font-size:0.95rem;margin-top:14px;margin-bottom:8px;">推薦工具</h4>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>工具</th><th>用途</th><th>費用</th></tr></thead>
+          <tbody>
+            <tr><td>ChatGPT</td><td>主力 AI 對話</td><td>免費 / 付費</td></tr>
+            <tr><td>Claude</td><td>長文分析備用</td><td>免費 / 付費</td></tr>
+            <tr><td>OpenAI Tokenizer</td><td>計算 Token 數</td><td>免費</td></tr>
+            <tr><td>DeepSeek Chat</td><td>中文場景測試</td><td>免費</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="practices" class="section-card">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <h2 class="section-title">實作練習項目</h2>
+      </div>
+      <div class="process-flow">
+        <div class="flow-step">
+          <div class="step-head"><span class="step-title">練習 1：初次對話（15 分鐘）</span><span class="step-actor">基礎</span></div>
+          <div class="step-desc">請 ChatGPT 用一句話解釋「什麼是 AI Agent」，追問「用生活例子說明」，最後問「和聊天機器人有何不同」。</div>
+        </div>
+        <div class="flow-step">
+          <div class="step-head"><span class="step-title">練習 2：模型對比實驗（20 分鐘）</span><span class="step-actor">比較</span></div>
+          <div class="step-desc">用同一個問題（如「規劃週末台北一日遊」）測試至少 2 個模型，比較風格、細節與實用性。</div>
+        </div>
+        <div class="flow-step">
+          <div class="step-head"><span class="step-title">練習 3：Token 計算練習（15 分鐘）</span><span class="step-actor">概念</span></div>
+          <div class="step-desc">在 OpenAI Tokenizer 貼上 100 字中文與對應英文，觀察並記錄 Token 數消耗差異。</div>
+        </div>
+        <div class="flow-step">
+          <div class="step-head"><span class="step-title">練習 4：Prompt 對比練習（20 分鐘）</span><span class="step-actor">實操</span></div>
+          <div class="step-desc">對比壞 Prompt（「寫環保文章」）與好 Prompt（角色、字數、3 個建議、格式），感受指令明確性的影響。</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="criteria" class="section-card">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <h2 class="section-title">通關標準與升階條件</h2>
+      </div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>可在至少 2 個 AI 平台上完成帳號註冊與設定</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>能流暢與 AI 進行 5 輪以上的連續對話</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>能說出 LLM 的 4 個核心概念（Token, Context Window, Temperature, 幻覺）</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>完成 1 份「AI 基礎認知筆記」（含本質理解、模型對比、Token 計算）</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>能舉出至少 3 個 AI 擅長與不擅長的事</div></li>
+      </ul>
+      <div class="callout callout-success">
+        <strong>升階考題：</strong>1. Token 是什麼？為什麼中文比英文貴？ 2. AI 回答錯誤的可能原因有哪些？ 3. GPT、Claude、DeepSeek 有何不同？<br>
+        <strong>下一步：</strong>前往 Stage 1 學習進階 Prompt Engineering，把 AI 變成你的頂級特助。
+      </div>
+    </section>
+
+    <section id="resources" class="section-card">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <h2 class="section-title">推薦學習資源</h2>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>資源</th><th>簡介</th></tr></thead>
+          <tbody>
+            <tr><td>魚皮 AI 知識庫</td><td>中文最全面的 AI 入門指南</td></tr>
+            <tr><td>3Blue1Brown 神經網路</td><td>用動畫解釋 AI 原理（中文字幕）</td></tr>
+            <tr><td>OpenAI 官方文件</td><td>理解 API 和模型的基本概念</td></tr>
+            <tr><td>Anthropic 官方指南</td><td>Claude 使用技巧與 Context Window 說明</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <nav class="stage-nav">
+      <span class="stage-nav-btn" style="opacity:0.5;pointer-events:none;">← 起點階段</span>
+      <a href="../index.html" class="stage-nav-btn">返回成果首頁</a>
+      <a href="stage-1.html" class="stage-nav-btn">下一階段 →</a>
+    </nav>
+  </main>
+
+  <footer>
+    AI Lab 課程展示 — 手機版頁面<br>
+    內容來源：stages/stage-0-ai-novice.md（純文字標記，無原始檔連結）
+  </footer>
+</body>
+</html>

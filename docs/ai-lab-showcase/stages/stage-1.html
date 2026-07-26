@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Lab 🧭 Stage 1：AI 探索者 完整課程展示頁面。">
+  <title>🧭 Stage 1：AI 探索者 — AI Lab 課程展示</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="../index.html" class="brand-title"><span>🤖</span> AI Lab 成果展示</a>
+      <div class="brand-subtitle">Stage 1 課程頁面</div>
+    </div>
+    <nav class="nav-scroll" aria-label="頁面導覽">
+      <a href="../index.html" class="nav-chip">← 返回成果首頁</a>
+      <a href="#positioning" class="nav-chip">階段定位</a>
+      <a href="#prerequisites" class="nav-chip">前置條件</a>
+      <a href="#knowledge" class="nav-chip">知識點</a>
+      <a href="#skills" class="nav-chip">技能與工具</a>
+      <a href="#practices" class="nav-chip">實作練習</a>
+      <a href="#criteria" class="nav-chip">通關標準</a>
+      <a href="#resources" class="nav-chip">推薦資源</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-tag">Stage 1 完整課程內容</span>
+      <h1>🧭 Stage 1：AI 探索者</h1>
+      <p>掌握提示詞精髓，把 LLM 用成頂級特助</p>
+      <div class="meta-bar">
+        <div class="meta-item"><strong>1 週</strong><span>建議學習時間</span></div>
+        <div class="meta-item"><strong>Phase 1：Agent 核心心智</strong><span>對應路線階段</span></div>
+        <div class="meta-item"><strong>手機版網頁</strong><span>完整預覽（無 .md 連結）</span></div>
+      </div>
+    </section>
+
+    
+    <section id="positioning" class="section-card">
+      <div class="section-header"><div class="section-num">1</div><h2 class="section-title">階段定位與目標</h2></div>
+      <div class="callout callout-info"><strong>一句話定義：</strong>掌握提示詞精髓的「超級個體」，能將大語言模型（LLM）的潛能逼到極致，成為職場上的高效特助。</div>
+      <div class="subcard">
+        <h4>你在這個階段的畫像</h4>
+        <p>你已經能熟練使用 ChatGPT/Claude，不再是「試試看」的階段；但你可能發現：有時 AI 的回覆很棒，有時卻很糟——你不知道為什麼。這個階段的目標：從「被動提問」變成「精準指揮」。</p>
+      </div>
+    </section>
+
+    <section id="prerequisites" class="section-card">
+      <div class="section-header"><div class="section-num">2</div><h2 class="section-title">前置條件</h2></div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>已完成 Stage 0 全部練習</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>能獨立註冊並使用至少 2 個 AI 平台</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>理解 Token、Context Window、Temperature、幻覺的基本概念</div></li>
+      </ul>
+    </section>
+
+    <section id="knowledge" class="section-card">
+      <div class="section-header"><div class="section-num">3</div><h2 class="section-title">知識點與架構</h2></div>
+      <details open>
+        <summary><span>1. Prompt 結構化六要素框架</span><span class="badge badge-completed">核心</span></summary>
+        <div class="details-content">
+          <ul class="checklist">
+            <li class="checklist-item"><span class="checklist-icon">🎭</span><div><strong>1. Role（角色）：</strong>設定專業身份和語氣（如：你是資深專案經理）。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">🎯</span><div><strong>2. Task（任務）：</strong>明確的目標和範圍（如：撰寫進度延遲 Email）。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">📌</span><div><strong>3. Context（背景）：</strong>提供情境和限制（如：因為供應商物料短缺）。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">📋</span><div><strong>4. Format（格式）：</strong> JSON/Markdown/表格（如：主旨→問候→原因→新時程）。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">⚠️</span><div><strong>5. Constraints（約束）：</strong>字數限制、語氣限制、禁用詞等。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">💡</span><div><strong>6. Examples（範例）：</strong> Few-shot 範例，給 AI 模仿樣本。</div></li>
+          </ul>
+        </div>
+      </details>
+
+      <details open>
+        <summary><span>2. 6 大核心 Prompt 技巧</span><span class="badge badge-completed">技巧</span></summary>
+        <div class="details-content">
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>技巧</th><th>說明</th><th>何時使用</th></tr></thead>
+              <tbody>
+                <tr><td>Chain-of-Thought (CoT)</td><td>要求 AI「一步步思考」再回答</td><td>複雜推理、數學問題</td></tr>
+                <tr><td>Few-shot Prompting</td><td>給 AI 2-3 個範例讓它模仿</td><td>格式化輸出、固定風格</td></tr>
+                <tr><td>Role Prompting</td><td>指定 AI 扮演特定角色</td><td>專業領域、語境控制</td></tr>
+                <tr><td>Structured Output</td><td>要求 AI 輸出 JSON/Markdown/表格</td><td>需要程式處理的場景</td></tr>
+                <tr><td>Self-Consistency</td><td>讓 AI 多次回答後投票選最佳</td><td>需要高準確度的分析</td></tr>
+                <tr><td>Tree-of-Thought (ToT)</td><td>讓 AI 探索多條思路再選擇</td><td>策略規劃、多方案比較</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary><span>3. AI 工作流模式与 Agent 核心循環</span><span class="badge badge-progress">進階</span></summary>
+        <div class="details-content">
+          <p><strong>工作流模式：</strong>分步處理、多模型分工（如 GPT 寫初稿 + Claude 潤色 + Perplexity 查核）、AI+人工協作。</p>
+          <div class="callout callout-info">
+            <strong>Agent 核心循環 (Perceive -> Think -> Act -> Observe)：</strong><br>
+            1. 感知 (Perceive)：獲取輸入與工具結果<br>
+            2. 思考 (Think)：LLM 推理決策<br>
+            3. 行動 (Act)：呼叫工具／生成回應<br>
+            4. 觀察 (Observe)：檢查結果，未達成則重回思考，達成則結束
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="skills" class="section-card">
+      <div class="section-header"><div class="section-num">4</div><h2 class="section-title">技能要求與推薦工具</h2></div>
+      <div class="grid-2">
+        <div class="subcard">
+          <h4>🛠️ 硬技能</h4>
+          <p>Prompt 設計（結構化可複用）、CoT 引導（一步步推理）、Few-shot 設計、多模型協作、Function Calling 認知。</p>
+        </div>
+        <div class="subcard">
+          <h4>💡 軟技能</h4>
+          <p>精準表達（模糊需求轉指令）、迭代調優（根據輸出調整 Prompt）、品質判斷（判斷 AI 輸出好壞）。</p>
+        </div>
+      </div>
+      <h4 style="font-size:0.95rem;margin-top:14px;margin-bottom:8px;">推薦工具</h4>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>工具</th><th>用途</th><th>費用</th></tr></thead>
+          <tbody>
+            <tr><td>ChatGPT</td><td>主力 Prompt 實驗</td><td>免費 / 付費</td></tr>
+            <tr><td>Claude</td><td>長文 Prompt 測試</td><td>免費 / 付費</td></tr>
+            <tr><td>Anthropic Prompt Library</td><td>Prompt 模板參考</td><td>免費</td></tr>
+            <tr><td>OpenAI Playground</td><td>調整 Temperature 等參數與 Function Calling 實驗</td><td>API 費用</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="practices" class="section-card">
+      <div class="section-header"><div class="section-num">5</div><h2 class="section-title">實作練習項目</h2></div>
+      <div class="process-flow">
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 1：Prompt 改造挑戰（1 小時）</span><span class="step-actor">改造</span></div><div class="step-desc">將爛 Prompt（「寫市場分析」）加入 Role、Task、Context、Format、Constraints 改造成結構化 Prompt。</div></div>
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 2：CoT 推理實驗（30 分鐘）</span><span class="step-actor">推理</span></div><div class="step-desc">用複雜應用題分別測試「直接問答案」與「一步步思考」，比較準確度與過程。</div></div>
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 3：製作第一個 Prompt 模板庫（2 小時）</span><span class="step-actor">模板</span></div><div class="step-desc">建立 3 個可複用模板（週報生成器、Email 回覆助手、自選場景）。</div></div>
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 4：Function Calling 初體驗（1 小時）</span><span class="step-actor">Playground</span></div><div class="step-desc">在 OpenAI Playground 免代碼介面配置 `get_current_time` 工具，觀察 AI 決定呼叫工具並處理回傳結果的完整過程。</div></div>
+      </div>
+    </section>
+
+    <section id="criteria" class="section-card">
+      <div class="section-header"><div class="section-num">6</div><h2 class="section-title">通關標準與升階條件</h2></div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>產出 1 篇結構化高級 Prompt 範本（含 Role+Task+Format+Constraints）</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>能解釋 CoT 原理並展示效果差異</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>完成 Prompt 模板庫（至少 3 個模板）</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>成功運行 Function Calling 模擬並解釋決策邏輯</div></li>
+      </ul>
+      <div class="callout callout-success">
+        <strong>升階考題：</strong>1. 好的 Prompt 包含哪些元素？ 2. CoT 與 Few-shot 適用於什麼場景？ 3. Function Calling 與一般對話有何本質區別？<br>
+        <strong>下一步：</strong>前往 Stage 2 進入 Vibe Coding，開始做出第一個可互動產品原型。
+      </div>
+    </section>
+
+    <section id="resources" class="section-card">
+      <div class="section-header"><div class="section-num">7</div><h2 class="section-title">推薦學習資源與論文</h2></div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>資源 / 論文</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>Anthropic Prompt Library</td><td>Claude 官方 Prompt 模板集</td></tr>
+            <tr><td>OpenAI Prompt Engineering Guide</td><td>官方提示詞工程指南</td></tr>
+            <tr><td>ReAct 論文 (arXiv:2210.03629)</td><td>推理與行動交替的 Agent 經典論文</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <nav class="stage-nav">
+      <a href="stage-0.html" class="stage-nav-btn">← 上一階段</a>
+      <a href="../index.html" class="stage-nav-btn">返回成果首頁</a>
+      <a href="stage-2.html" class="stage-nav-btn">下一階段 →</a>
+    </nav>
+  </main>
+
+  <footer>
+    AI Lab 課程展示 — 手機版頁面<br>
+    內容來源：stages/stage-1-ai-explorer.md（純文字標記，無原始檔連結）
+  </footer>
+</body>
+</html>

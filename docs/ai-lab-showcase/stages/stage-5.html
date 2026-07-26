@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Lab 🧠 Stage 5：高階 AI 架構師 完整課程展示頁面。">
+  <title>🧠 Stage 5：高階 AI 架構師 — AI Lab 課程展示</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="../index.html" class="brand-title"><span>🤖</span> AI Lab 成果展示</a>
+      <div class="brand-subtitle">Stage 5 課程頁面</div>
+    </div>
+    <nav class="nav-scroll" aria-label="頁面導覽">
+      <a href="../index.html" class="nav-chip">← 返回成果首頁</a>
+      <a href="#positioning" class="nav-chip">階段定位</a>
+      <a href="#prerequisites" class="nav-chip">前置條件</a>
+      <a href="#knowledge" class="nav-chip">知識點</a>
+      <a href="#skills" class="nav-chip">技能與工具</a>
+      <a href="#practices" class="nav-chip">實作練習</a>
+      <a href="#criteria" class="nav-chip">通關標準</a>
+      <a href="#resources" class="nav-chip">推薦資源</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-tag">Stage 5 完整課程內容</span>
+      <h1>🧠 Stage 5：高階 AI 架構師</h1>
+      <p>打造能自主決策的 Agent 系統 (分代碼軌/低代碼軌)</p>
+      <div class="meta-bar">
+        <div class="meta-item"><strong>5-7 週</strong><span>建議學習時間</span></div>
+        <div class="meta-item"><strong>Phase 5：生產級 Agent</strong><span>對應路線階段</span></div>
+        <div class="meta-item"><strong>手機版網頁</strong><span>完整預覽（無 .md 連結）</span></div>
+      </div>
+    </section>
+
+    
+    <section id="positioning" class="section-card">
+      <div class="section-header"><div class="section-num">1</div><h2 class="section-title">階段定位與雙軌選項</h2></div>
+      <div class="callout callout-info"><strong>一句話定義：</strong>AI Lab 的 Agent 系統殿堂。打造具備「自主思考、決策、調用工具、擁有企業記憶（RAG）」的 AI Agent 系統。</div>
+      <div class="grid-2">
+        <div class="subcard"><h4>💻 A軌：技術代碼軌</h4><p>Python + LangChain + LangGraph + RAG + Docker + MCP Server。</p></div>
+        <div class="subcard"><h4>🧩 B軌：企業低代碼軌</h4><p>Dify 進階工作流 + 知識庫檢索 + 外部 API 連接器 + 人工審核節點。</p></div>
+      </div>
+    </section>
+
+    <section id="prerequisites" class="section-card">
+      <div class="section-header"><div class="section-num">2</div><h2 class="section-title">前置條件</h2></div>
+      <p><strong>A軌：</strong>完成 Stage 3、熟練 Python/LangChain 與自定義 Tool、有 API 部署基礎。<br><strong>B軌：</strong>完成 Stage 4、熟練 Coze/Dify 與 n8n/Make 自動化整合。</p>
+    </section>
+
+    <section id="knowledge" class="section-card">
+      <div class="section-header"><div class="section-num">3</div><h2 class="section-title">知識點與架構</h2></div>
+      <details open>
+        <summary><span>1. RAG 全流程與優化策略</span><span class="badge badge-completed">RAG</span></summary>
+        <div class="details-content">
+          <p><strong>管道：</strong>文件解析 (MinerU/Markitdown) → 語義分塊 (Chunking) → 向量化 (Embedding) → 向量庫 (Chroma/Milvus) → 混合檢索 → Rerank 重排序 → RAGAS 評估。</p>
+          <div class="callout callout-warning">RAG 效果 80% 取決於分塊與檢索策略！避免切太碎、避免只用向量搜尋失掉關鍵字。</div>
+        </div>
+      </details>
+
+      <details open>
+        <summary><span>2. Memory 三層架構與 LangGraph 有狀態圖</span><span class="badge badge-completed">狀態</span></summary>
+        <div class="details-content">
+          <p><strong>記憶三層：</strong>Working Memory (當前 Context) + Short-term Memory (本次歷史) + Long-term Memory (跨會話摘要)。</p>
+          <p><strong>LangGraph 核心：</strong> State (狀態) + Node (節點) + Edge (條件邊) + Checkpointer (歷史快照與人工介入 Human-in-the-loop)。</p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span>3. Multi-Agent 協作、MCP 協議與安全部署</span><span class="badge badge-progress">架構</span></summary>
+        <div class="details-content">
+          <p><strong>協作模式：</strong> Supervisor (主副分工)、Decentralized (平等協商)、Hierarchical (層級樹)、Blackboard (共享白板)。框架含 CrewAI, AutoGen, LangGraph, Swarm。</p>
+          <p><strong>MCP (Model Context Protocol)：</strong> 統一工具標準，讓 Client (如 Cursor) 透過標準通訊呼叫 Server 工具。</p>
+          <p><strong>安全防護：</strong> Docker 物理沙箱隔離程式執行，Prompt Injection 護欄防禦惡意注入。</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="skills" class="section-card">
+      <div class="section-header"><div class="section-num">4</div><h2 class="section-title">技能要求與推薦工具</h2></div>
+      <div class="grid-2">
+        <div class="subcard"><h4>🛠️ 硬技能</h4><p>RAG Pipeline、LangGraph、Multi-Agent 架構、MCP Server 開發、Chroma/Milvus 向量庫、LangSmith/LangFuse 監控、Docker 容器化。</p></div>
+        <div class="subcard"><h4>💡 軟技能</h4><p>系統設計（Multi-Agent 協作架構）、效能調優（診斷 RAG 瓶頸）、技術溝通（向客戶說明邊界）。</p></div>
+      </div>
+    </section>
+
+    <section id="practices" class="section-card">
+      <div class="section-header"><div class="section-num">5</div><h2 class="section-title">實作練習與大型專案（雙軌）</h2></div>
+      <details open>
+        <summary><span>💻 A軌實作項目（代碼軌）</span><span class="badge badge-completed">A軌</span></summary>
+        <div class="details-content">
+          <p>練習 1：最小 RAG 系統 (Chroma+RAGAS)｜練習 2：帶記憶 Agent (SQLite 長期記憶)｜練習 3：LangGraph 客服 Agent｜專案 A：CrewAI 內容團隊｜專案 B：MCP Server 開發｜專案 C：企業級 Multi-Agent 系統 (含 Docker+FastAPI 部署與驗收)。</p>
+        </div>
+      </details>
+
+      <details open>
+        <summary><span>🧩 B軌實作項目（低代碼軌）</span><span class="badge badge-completed">B軌</span></summary>
+        <div class="details-content">
+          <p>B軌練習 1：Dify+RAG 企業知識庫 Agent｜B軌練習 2：Dify 多 Agent 協作工作流｜B軌練習 3：Dify + 外部 API 連接器｜B軌專案：Dify 企業級智能客服總監 (含意圖分類、人工審核關卡與 Sheets 歸檔)。</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="criteria" class="section-card">
+      <div class="section-header"><div class="section-num">6</div><h2 class="section-title">通關標準與升階條件</h2></div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>A軌：上線 1 套客製化 Multi-Agent 系統（RAG + LangGraph + Docker + 30 條測試案例報告）</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>B軌：在 Dify 搭建 1 套多 Agent 工作流（RAG + 意圖分類 + 人工審核 + API 連接器 + 10 條測試報告）</div></li>
+      </ul>
+      <div class="callout callout-success">
+        <strong>下一步：</strong>進入 Stage 6 自我進化 Agent 架構師，讓 Agent 系統具備自我反思、自我評估與自我改進能力。
+      </div>
+    </section>
+
+    <section id="resources" class="section-card">
+      <div class="section-header"><div class="section-num">7</div><h2 class="section-title">推薦學習資源與論文</h2></div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>資源 / 論文</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>LangGraph & CrewAI Docs</td><td>有狀態與多 Agent 框架指南</td></tr>
+            <tr><td>MCP 官方規範</td><td>Model Context Protocol 標準</td></tr>
+            <tr><td>MemGPT / AutoGen / DeepSeek-R1 論文</td><td>記憶、多 Agent 與 GRPO 強化學習論文</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <nav class="stage-nav">
+      <a href="stage-4.html" class="stage-nav-btn">← 上一階段</a>
+      <a href="../index.html" class="stage-nav-btn">返回成果首頁</a>
+      <a href="stage-6.html" class="stage-nav-btn">下一階段 →</a>
+    </nav>
+  </main>
+
+  <footer>
+    AI Lab 課程展示 — 手機版頁面<br>
+    內容來源：stages/stage-5-senior-builder.md（純文字標記，無原始檔連結）
+  </footer>
+</body>
+</html>

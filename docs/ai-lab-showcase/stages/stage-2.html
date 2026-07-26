@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Lab 🎨 Stage 2：AI 實踐者 完整課程展示頁面。">
+  <title>🎨 Stage 2：AI 實踐者 — AI Lab 課程展示</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="../index.html" class="brand-title"><span>🤖</span> AI Lab 成果展示</a>
+      <div class="brand-subtitle">Stage 2 課程頁面</div>
+    </div>
+    <nav class="nav-scroll" aria-label="頁面導覽">
+      <a href="../index.html" class="nav-chip">← 返回成果首頁</a>
+      <a href="#positioning" class="nav-chip">階段定位</a>
+      <a href="#prerequisites" class="nav-chip">前置條件</a>
+      <a href="#knowledge" class="nav-chip">知識點</a>
+      <a href="#skills" class="nav-chip">技能與工具</a>
+      <a href="#practices" class="nav-chip">實作練習</a>
+      <a href="#criteria" class="nav-chip">通關標準</a>
+      <a href="#resources" class="nav-chip">推薦資源</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-tag">Stage 2 完整課程內容</span>
+      <h1>🎨 Stage 2：AI 實踐者</h1>
+      <p>用 Vibe Coding 快速做出產品原型</p>
+      <div class="meta-bar">
+        <div class="meta-item"><strong>2 週</strong><span>建議學習時間</span></div>
+        <div class="meta-item"><strong>Phase 2：低代碼實戰</strong><span>對應路線階段</span></div>
+        <div class="meta-item"><strong>手機版網頁</strong><span>完整預覽（無 .md 連結）</span></div>
+      </div>
+    </section>
+
+    
+    <section id="positioning" class="section-card">
+      <div class="section-header"><div class="section-num">1</div><h2 class="section-title">階段定位與目標</h2></div>
+      <div class="callout callout-info"><strong>一句話定義：</strong>進入 Vibe Coding 領域！擺脫傳統語法死背，用直覺與 AI 協作，快速做出看得見、動得起來的產品原型（MVP）。</div>
+      <div class="subcard">
+        <h4>你在這個階段的畫像</h4>
+        <p>你已經熟練使用 AI 對話，可能有一個產品點子，但「不會寫程式」卡住了你；或者你會寫一點程式但覺得太慢。這個階段的目標：用 AI 輔助在幾小時內做出一個能互動的原型。</p>
+      </div>
+    </section>
+
+    <section id="prerequisites" class="section-card">
+      <div class="section-header"><div class="section-num">2</div><h2 class="section-title">前置條件</h2></div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>已完成 Stage 1 全部練習</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>能寫出結構化 Prompt</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>理解 Function Calling 基本概念</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>對前後端、API、資料庫有最基礎概念</div></li>
+      </ul>
+    </section>
+
+    <section id="knowledge" class="section-card">
+      <div class="section-header"><div class="section-num">3</div><h2 class="section-title">知識點與架構</h2></div>
+      <details open>
+        <summary><span>1. Vibe Coding 核心概念與工具矩陣</span><span class="badge badge-completed">核心</span></summary>
+        <div class="details-content">
+          <p><strong>Vibe Coding 心法：</strong>先有畫面再寫 Prompt、小步快跑（一次改一個功能）、學會讀程式碼、版本控制是救命繩。</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>工具</th><th>類型</th><th>適合場景</th></tr></thead>
+              <tbody>
+                <tr><td>v0.dev</td><td>零代碼網頁 UI</td><td>快速原型、Landing Page</td></tr>
+                <tr><td>bolt.new</td><td>瀏覽器全棧應用</td><td>全棧原型、小型工具</td></tr>
+                <tr><td>Cursor / Windsurf</td><td>AI IDE</td><td>修改專案、除錯、輔助開發</td></tr>
+                <tr><td>Coze / Dify</td><td>低代碼 Agent 平台</td><td>搭 Agent Workflow、發布到通訊軟體</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details open>
+        <summary><span>2. 基礎網頁與低代碼對照</span><span class="badge badge-completed">對照</span></summary>
+        <div class="details-content">
+          <p><strong>網頁基礎：</strong>HTML (骨架), CSS (化妝), JS (動作), 前端 (畫面), 後端 (邏輯), API (溝通), 資料庫 (存資料), 部署 (上線)。</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>低代碼概念 (Coze/Dify)</th><th>代碼層概念 (LangChain)</th></tr></thead>
+              <tbody>
+                <tr><td>Plugin 插件</td><td>Tool / Function</td></tr>
+                <tr><td>Knowledge 知識庫</td><td>RAG (Indexing + Retrieval)</td></tr>
+                <tr><td>Workflow 工作流</td><td>LangGraph StateGraph</td></tr>
+                <tr><td>Variable 變數</td><td>State</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="skills" class="section-card">
+      <div class="section-header"><div class="section-num">4</div><h2 class="section-title">技能要求與推薦工具</h2></div>
+      <div class="grid-2">
+        <div class="subcard"><h4>🛠️ 硬技能</h4><p>v0.dev/bolt.new 文字生成原型、Cursor/Windsurf 基本操作、HTML/CSS 閱讀、Git 基礎（init/add/commit）、Vercel 部署、Coze/Dify 搭建。</p></div>
+        <div class="subcard"><h4>💡 軟技能</h4><p>產品感知（從使用者角度思考）、迭代心態（快速改進）、Prompt 進化（從「幫我寫」到「幫我做」）。</p></div>
+      </div>
+    </section>
+
+    <section id="practices" class="section-card">
+      <div class="section-header"><div class="section-num">5</div><h2 class="section-title">實作練習項目</h2></div>
+      <div class="process-flow">
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 1：第一個 Vibe Coding 作品（2 小時）</span><span class="step-actor">v0.dev</span></div><div class="step-desc">用 v0.dev 生成個人名片網頁，調整文字、顏色並加入技能區塊。</div></div>
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 2：Coze Agent 搭建（3 小時）</span><span class="step-actor">Coze</span></div><div class="step-desc">搭建 AI 日報生成器，搜尋主題資訊並輸出 Markdown 日報。</div></div>
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 3：Dify 智能客服（4 小時）</span><span class="step-actor">Dify</span></div><div class="step-desc">上傳 3-5 份說明文件，設定意圖識別、知識檢索與轉人工記錄。</div></div>
+        <div class="flow-step"><div class="step-head"><span class="step-title">練習 4：bolt.new 全棧原型（3 小時）</span><span class="step-actor">bolt.new</span></div><div class="step-desc">生成一個帶資料保存（localStorage）的待辦事項應用。</div></div>
+        <div class="flow-step" style="border-left-color: var(--accent-teal);"><div class="step-head"><span class="step-title">練習 5：Stage 3 入門準備 — 技術地基（3 小時）🆕</span><span class="step-actor">5 步地基</span></div><div class="step-desc">1. Python 環境 2. API 理解與呼叫 3. 前端呼叫後端 4. Git 基礎操作 5. Supabase 資料庫體驗。</div></div>
+      </div>
+    </section>
+
+    <section id="criteria" class="section-card">
+      <div class="section-header"><div class="section-num">6</div><h2 class="section-title">通關標準與升階條件</h2></div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>獨立產出 1 個具備互動、外觀完整的產品原型</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>在 Coze 或 Dify 上搭建 1 個完整可運行的 Agent Bot</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>完成「練習 5：Stage 3 入門準備」全部 5 個步驟</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>完成 1 份 Vibe Coding 實戰筆記</div></li>
+      </ul>
+      <div class="callout callout-success">
+        <strong>下一步選擇：</strong><br>
+        - **技術路線：** 前往 Stage 3 初階 AI 建造者（深入程式碼全棧開發）<br>
+        - **自動化路線：** 可跳過 Stage 3，前往 Stage 4 流程自動化專家
+      </div>
+    </section>
+
+    <section id="resources" class="section-card">
+      <div class="section-header"><div class="section-num">7</div><h2 class="section-title">推薦學習資源</h2></div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>資源</th><th>簡介</th></tr></thead>
+          <tbody>
+            <tr><td>魚皮 Vibe Coding 教程</td><td>中文零基礎 Vibe Coding 實戰教學</td></tr>
+            <tr><td>v0.dev 官方文件</td><td>Vercel UI 生成工具手冊</td></tr>
+            <tr><td>Cursor / Dify / Coze 官方文檔</td><td>工具使用指南</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <nav class="stage-nav">
+      <a href="stage-1.html" class="stage-nav-btn">← 上一階段</a>
+      <a href="../index.html" class="stage-nav-btn">返回成果首頁</a>
+      <a href="stage-3.html" class="stage-nav-btn">下一階段 →</a>
+    </nav>
+  </main>
+
+  <footer>
+    AI Lab 課程展示 — 手機版頁面<br>
+    內容來源：stages/stage-2-ai-implementer.md（純文字標記，無原始檔連結）
+  </footer>
+</body>
+</html>

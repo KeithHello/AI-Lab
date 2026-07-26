@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Lab GitHub 專案規劃成果的手機版展示。">
+  <title>AI Lab — GitHub 規劃成果展示</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="brand-title"><span>🤖</span> AI Lab 成果展示</div>
+      <div class="brand-subtitle">GitHub 專案內容預覽</div>
+    </div>
+    <nav class="nav-scroll" aria-label="頁面導覽">
+      <a href="#overview" class="nav-chip">專案定位</a>
+      <a href="#files" class="nav-chip">文件預覽</a>
+      <a href="#stages" class="nav-chip">七階段</a>
+      <a href="#tracks" class="nav-chip">雙軌路線</a>
+      <a href="#practice" class="nav-chip">實作內容</a>
+      <a href="#github" class="nav-chip">GitHub 用途</a>
+      <a href="#status" class="nav-chip">完成度</a>
+      <a href="#review" class="nav-chip">方案檢視</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <span class="hero-tag">手機版成果總覽</span>
+      <h1 id="hero-title">AI Lab GitHub 規劃成果</h1>
+      <p>把分散在 GitHub 裡的學習路線、能力等級、實作項目與技術規劃，整理成 5–10 分鐘可以理解的視覺化摘要。</p>
+      <div class="meta-bar">
+        <div class="meta-item"><strong>7 階段</strong><span>Stage 0–6</span></div>
+        <div class="meta-item"><strong>2 條路線</strong><span>代碼／低代碼</span></div>
+        <div class="meta-item"><strong>9 張圖表</strong><span>視覺化說明</span></div>
+      </div>
+    </section>
+
+    <section id="overview" class="section-card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <h2 class="section-title">這個 GitHub 專案在做什麼？</h2>
+      </div>
+      <div class="callout callout-info">
+        <strong>一句話定位：</strong>這是一套從 AI 新手一路成長到能設計進階 AI 系統的學習地圖與能力標準。
+      </div>
+      <div class="grid-2">
+        <article class="subcard">
+          <h4>🏆 等級制度</h4>
+          <p>回答「我目前在哪個階段、下一步要做到什麼、如何證明自己已經具備能力」。</p>
+        </article>
+        <article class="subcard">
+          <h4>🗺️ 學習路線</h4>
+          <p>回答「要學什麼、用什麼工具、練什麼、最後應該產出什麼」。</p>
+        </article>
+      </div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div><strong>做中學</strong><br>每個階段都以可展示、可驗收的作品為終點。</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div><strong>硬性通過標準</strong><br>不是看完文件就算完成，而是必須通過練習與專案驗收。</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div><strong>不同背景都能參與</strong><br>非技術與技術學習者可以選擇不同路線前進。</div></li>
+      </ul>
+    </section>
+
+    <section id="files" class="section-card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <h2 class="section-title">核心文件內容預覽</h2>
+      </div>
+      <p style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:12px;">以下內容已直接整理成網頁預覽。點開即可閱讀，不會跳到 Markdown 原始文字。</p>
+
+      <details open>
+        <summary><span>README — 專案入口</span><span class="badge badge-completed">已完成</span></summary>
+        <div class="details-content">
+          <p>提供兩個主要入口：查看自己的能力等級，以及查看下一步的學習路線；同時整理七個 Stage、設計理念與檔案導航。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span>AI Lab 成長等級制度</span><span class="badge badge-completed">已完成</span></summary>
+        <div class="details-content">
+          <p>定義 Stage 0–6 的名稱、能力描述、通過標準、升階條件、不同背景的推薦路線，以及高階學習者協助初階學習者的互助機制。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span>AI Agent 學習路線圖</span><span class="badge badge-completed">已完成</span></summary>
+        <div class="details-content">
+          <p>依 Phase 0–6 排列學習內容，涵蓋 AI 基礎、提示詞、低代碼原型、程式開發、流程自動化、知識庫、多 Agent 協作與自我改進機制。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span>七冊 Stage 詳細手冊</span><span class="badge badge-completed">已完成</span></summary>
+        <div class="details-content">
+          <p>每冊包含階段定位、前置條件、知識點、技能要求、推薦工具、練習項目、通過標準、升階條件與學習資源。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span>接案平台成長等級設計</span><span class="badge badge-completed">規格完成</span></summary>
+        <div class="details-content">
+          <p>把七個能力等級對應到可承接的項目類型，例如內容整理、原型製作、全端系統、自動化流程、知識庫與進階 AI 系統。</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="stages" class="section-card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <h2 class="section-title">七階段成長路線</h2>
+      </div>
+      <div class="process-flow">
+        <a href="stages/stage-0.html" class="flow-step flow-step-link" aria-label="開啟 Stage 0 AI 新手村課程"><div class="step-head"><span class="step-title">Stage 0｜AI 新手村</span><span class="step-actor">起點</span></div><div class="step-desc">消除恐懼，理解 AI 的能力與限制，建立人機協作思維。</div><span class="step-link-hint">查看課程 →</span></a>
+        <a href="stages/stage-1.html" class="flow-step flow-step-link" aria-label="開啟 Stage 1 AI 探索者課程"><div class="step-head"><span class="step-title">Stage 1｜AI 探索者</span><span class="step-actor">會使用</span></div><div class="step-desc">掌握結構化提問，讓 AI 成為穩定的日常工作助手。</div><span class="step-link-hint">查看課程 →</span></a>
+        <a href="stages/stage-2.html" class="flow-step flow-step-link" aria-label="開啟 Stage 2 AI 實踐者課程"><div class="step-head"><span class="step-title">Stage 2｜AI 實踐者</span><span class="step-actor">做原型</span></div><div class="step-desc">使用 AI 輔助工具，把想法快速做成可互動的產品原型。</div><span class="step-link-hint">查看課程 →</span></a>
+        <a href="stages/stage-3.html" class="flow-step flow-step-link" aria-label="開啟 Stage 3 初階 AI 建造者課程"><div class="step-head"><span class="step-title">Stage 3｜初階 AI 建造者</span><span class="step-actor">真系統</span></div><div class="step-desc">串起畫面、後端與資料儲存，交付真正可運作的系統。</div><span class="step-link-hint">查看課程 →</span></a>
+        <a href="stages/stage-4.html" class="flow-step flow-step-link" aria-label="開啟 Stage 4 流程自動化專家課程"><div class="step-head"><span class="step-title">Stage 4｜流程自動化專家</span><span class="step-actor">串流程</span></div><div class="step-desc">串接不同工具，減少重複的人工作業並加入錯誤處理。</div><span class="step-link-hint">查看課程 →</span></a>
+        <a href="stages/stage-5.html" class="flow-step flow-step-link" aria-label="開啟 Stage 5 高階 AI 架構師課程"><div class="step-head"><span class="step-title">Stage 5｜高階 AI 架構師</span><span class="step-actor">建系統</span></div><div class="step-desc">建立具備知識庫、記憶、工具使用與多角色協作的 AI 系統。</div><span class="step-link-hint">查看課程 →</span></a>
+        <a href="stages/stage-6.html" class="flow-step flow-step-link" aria-label="開啟 Stage 6 自我進化架構師課程"><div class="step-head"><span class="step-title">Stage 6｜自我進化架構師</span><span class="step-actor">會改進</span></div><div class="step-desc">用測試與回饋機制持續評估、修正與改善 AI 系統。</div><span class="step-link-hint">查看課程 →</span></a>
+      </div>
+    </section>
+
+    <section id="tracks" class="section-card">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <h2 class="section-title">代碼軌與低代碼軌</h2>
+      </div>
+      <div class="grid-2">
+        <article class="subcard">
+          <h4>💻 A 軌｜代碼路線</h4>
+          <p>適合工程背景或希望深入開發的人。重點包含 Python、LangGraph、API、資料庫、Docker、知識庫與多 Agent 系統。</p>
+        </article>
+        <article class="subcard">
+          <h4>🧩 B 軌｜低代碼路線</h4>
+          <p>適合營運、產品與非技術背景。使用 Dify、Coze、n8n、Make.com 等視覺化工具建立同等概念的工作流程。</p>
+        </article>
+      </div>
+      <div class="callout callout-success"><strong>共同終點：</strong>兩條路線都要求能做出可測試、可說明、可維護的成果；差別只在使用的工具與技術深度。</div>
+    </section>
+
+    <section id="practice" class="section-card">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <h2 class="section-title">練習、專案與 Workflow</h2>
+      </div>
+      <div class="callout callout-info">
+        <strong>Workflow 是什麼？</strong>可以把它理解成一張工作步驟圖：資料從哪裡來、經過哪些處理、遇到不同情況走哪條路、最後交付什麼結果。
+      </div>
+      <div class="process-flow">
+        <article class="flow-step"><div class="step-head"><span class="step-title">輸入</span><span class="step-actor">資料來源</span></div><div class="step-desc">使用者文字、文件、表格、外部 API 或知識庫。</div></article>
+        <article class="flow-step"><div class="step-head"><span class="step-title">判斷</span><span class="step-actor">條件節點</span></div><div class="step-desc">辨識需求類型，決定要檢索資料、呼叫工具或轉交人工。</div></article>
+        <article class="flow-step"><div class="step-head"><span class="step-title">處理</span><span class="step-actor">AI／工具</span></div><div class="step-desc">整理、分析、生成內容，或串接其他服務完成動作。</div></article>
+        <article class="flow-step"><div class="step-head"><span class="step-title">驗證</span><span class="step-actor">測試／人工</span></div><div class="step-desc">使用測試案例確認準確率、例外處理與輸出品質。</div></article>
+        <article class="flow-step"><div class="step-head"><span class="step-title">輸出</span><span class="step-actor">成果</span></div><div class="step-desc">產生報告、回覆、通知、資料更新或可展示的應用。</div></article>
+      </div>
+      <h3 style="font-size:0.95rem;margin:16px 0 8px;">文件中的代表性實作項目</h3>
+      <div class="grid-2">
+        <article class="subcard"><h4>AI 日報生成器</h4><p>搜尋資料、篩選重點並生成格式化日報。</p></article>
+        <article class="subcard"><h4>知識庫客服</h4><p>從產品文件中搜尋答案，無法回答時交由人工處理。</p></article>
+        <article class="subcard"><h4>跨平台自動化</h4><p>串接郵件、表格、通訊工具與 AI，減少複製貼上。</p></article>
+        <article class="subcard"><h4>多角色內容團隊</h4><p>由研究、撰寫、編輯與審核角色接力完成內容。</p></article>
+      </div>
+      <div class="callout callout-warning"><strong>重要說明：</strong>以上目前是教學設計與驗收規格，程式庫中尚未提供可直接執行的 Workflow 檔案或完整應用程式。</div>
+    </section>
+
+    <section id="github" class="section-card">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <h2 class="section-title">GitHub 在專案中的用途</h2>
+      </div>
+      <div class="grid-2">
+        <article class="subcard"><h4>📚 文件中心</h4><p>集中保存總覽、學習路線、等級標準與七冊詳細手冊。</p></article>
+        <article class="subcard"><h4>🕒 版本歷史</h4><p>記錄每次內容新增與修改，保留可以追溯的變更紀錄。</p></article>
+        <article class="subcard"><h4>🔎 內容審查</h4><p>透過 Pull Request 比對新舊版本，讓修改原因與範圍可被看見。</p></article>
+        <article class="subcard"><h4>🤝 協作入口</h4><p>README 規劃透過 Issues 與 Pull Requests 參與內容共建。</p></article>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>目前狀態</th><th>程式庫事實</th></tr></thead>
+          <tbody>
+            <tr><td>公開程度</td><td>公開 GitHub 專案</td></tr>
+            <tr><td>主要分支</td><td>main</td></tr>
+            <tr><td>Pull Request</td><td>1 個已合併</td></tr>
+            <tr><td>Issue</td><td>目前 0 個</td></tr>
+            <tr><td>自動化檢查</td><td>尚未配置 GitHub Actions</td></tr>
+            <tr><td>成果網站</td><td>已建立本機靜態版，尚未公開部署</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="status" class="section-card">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <h2 class="section-title">已完成與尚未完成</h2>
+      </div>
+      <details open>
+        <summary><span>✅ 已完成：有文件或 Git 紀錄為依據</span><span class="badge badge-completed">已完成</span></summary>
+        <div class="details-content">
+          <ul style="padding-left:18px;">
+            <li>README 專案入口與檔案導航。</li>
+            <li>Stage 0–6 七階段成長等級制度。</li>
+            <li>Phase 0–6 AI Agent 學習路線圖。</li>
+            <li>七冊 Stage 詳細手冊與分級驗收條件。</li>
+            <li>代碼軌／低代碼軌雙軌設計。</li>
+            <li>Stage 2→3 技術橋接練習。</li>
+            <li>九張 Mermaid 視覺化圖表。</li>
+            <li>接案平台成長等級導入規格。</li>
+            <li>GitHub Pull Request #1 已合併。</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary><span>🟡 尚未完成：目前沒有實作證據</span><span class="badge badge-progress">待推進</span></summary>
+        <div class="details-content">
+          <ul style="padding-left:18px;">
+            <li>可直接執行的 Workflow 或應用程式。</li>
+            <li>教學專案所需的 CSV、JSON、PDF 測試資料包。</li>
+            <li>自動化測試與 GitHub Actions。</li>
+            <li>正式服務環境、資料庫、監控儀表板與公開部署。</li>
+            <li>README 內部分統計數字與後續新增內容的同步更新。</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section id="review" class="section-card">
+      <div class="section-header">
+        <div class="section-num">8</div>
+        <h2 class="section-title">方案 Review：現在是否合適？</h2>
+      </div>
+      <div class="callout callout-success"><strong>結論：</strong>現在的展示方向合適。內容聚焦 GitHub 已完成的規劃，未把教學構想描述成已上線制度，也不再依賴 Markdown 原始檔作為展示入口。</div>
+      <div class="grid-2">
+        <article class="subcard"><h4>適合的地方</h4><p>重要結論先出現、手機單欄閱讀、術語有白話解釋、已完成與未完成分開。</p></article>
+        <article class="subcard"><h4>仍需注意</h4><p>README 統計數字需要同步；未來增加實作成果後，應補上截圖、測試結果與可運行範例。</p></article>
+      </div>
+      <h3 style="font-size:0.95rem;margin:16px 0 8px;">下一階段最實際的三件事</h3>
+      <ol style="padding-left:20px;font-size:0.88rem;color:var(--text-secondary);">
+        <li>統一 README、路線圖與 Stage 手冊中的統計數字和名稱。</li>
+        <li>挑選一個代表性項目，補齊測試資料、Workflow 文件與執行截圖。</li>
+        <li>加入自動化連結檢查，避免未來章節調整後出現失效連結。</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    AI Lab — GitHub 規劃成果展示<br>
+    所有內容均依據目前程式庫文件與 Git 紀錄整理
+  </footer>
+</body>
+</html>

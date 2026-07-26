@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Lab 🧬 Stage 6：進化架構師 完整課程展示頁面。">
+  <title>🧬 Stage 6：進化架構師 — AI Lab 課程展示</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="../index.html" class="brand-title"><span>🤖</span> AI Lab 成果展示</a>
+      <div class="brand-subtitle">Stage 6 課程頁面</div>
+    </div>
+    <nav class="nav-scroll" aria-label="頁面導覽">
+      <a href="../index.html" class="nav-chip">← 返回成果首頁</a>
+      <a href="#positioning" class="nav-chip">階段定位</a>
+      <a href="#prerequisites" class="nav-chip">前置條件</a>
+      <a href="#knowledge" class="nav-chip">知識點</a>
+      <a href="#skills" class="nav-chip">技能與工具</a>
+      <a href="#practices" class="nav-chip">實作練習</a>
+      <a href="#criteria" class="nav-chip">通關標準</a>
+      <a href="#resources" class="nav-chip">推薦資源</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-tag">Stage 6 完整課程內容</span>
+      <h1>🧬 Stage 6：進化架構師</h1>
+      <p>設計能自我改進的元 Agent 系統 (分代碼軌/低代碼軌)</p>
+      <div class="meta-bar">
+        <div class="meta-item"><strong>6-8 週</strong><span>建議學習時間</span></div>
+        <div class="meta-item"><strong>Phase 6：自我進化 Agent 架構師</strong><span>對應路線階段</span></div>
+        <div class="meta-item"><strong>手機版網頁</strong><span>完整預覽（無 .md 連結）</span></div>
+      </div>
+    </section>
+
+    
+    <section id="positioning" class="section-card">
+      <div class="section-header"><div class="section-num">1</div><h2 class="section-title">階段定位與核心思維轉變</h2></div>
+      <div class="callout callout-info"><strong>一句話定義：</strong>不再只是「設計 Agent」，而是設計「能設計 Agent 的 Agent」（Meta-Agent）。你打造的系統具備自我反思、自我評估、自我改進的能力，可在無人工干預下持續進化。</div>
+      <div class="callout callout-success">
+        <strong>思維轉變：</strong><br>
+        - Stage 5（傳統）：人類工程師 → 設計 Prompt → 選擇工具 → 配置評估 → 人類調優<br>
+        - Stage 6（進化）：Meta-Agent → 自動設計子 Agent → 自動評估 → 自我修正 Prompt/Tool
+      </div>
+    </section>
+
+    <section id="prerequisites" class="section-card">
+      <div class="section-header"><div class="section-num">2</div><h2 class="section-title">前置條件</h2></div>
+      <p><strong>A軌：</strong>完成 Stage 5 A軌，至少 1 套 Multi-Agent 系統在生產環境運行，掌握 LangSmith/LangFuse 評測。<br><strong>B軌：</strong>完成 Stage 5 B軌，至少 1 套 Dify/n8n 系統在生產運行，有日誌追蹤與手動評測經驗。</p>
+    </section>
+
+    <section id="knowledge" class="section-card">
+      <div class="section-header"><div class="section-num">3</div><h2 class="section-title">6 大自我進化能力</h2></div>
+      <details open>
+        <summary><span>能力 1–3：自我評估、工具生成與動態 Prompt</span><span class="badge badge-completed">核心</span></summary>
+        <div class="details-content">
+          <ul class="checklist">
+            <li class="checklist-item"><span class="checklist-icon">🔄</span><div><strong>能力 1 自我評估 (Reflexion)：</strong>執行任務 → 評估結果 → 診斷失敗原因 → 產生經驗教訓 (Lesson) 存入長期記憶。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">🛠️</span><div><strong>能力 2 自主工具生成 (Tool Generator)：</strong>發現缺工具 → 自動編寫 Python 程式碼 → 產生 Description → 驗證測試 → 加入工具庫。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">⚡</span><div><strong>能力 3 動態 Prompt 編譯 (DSPy / LLM-as-a-Judge)：</strong> [A軌] 使用 DSPy 自動搜尋最優 Prompt；[B軌] 建立批次評測 Dataset 與 LLM-as-a-Judge 自動淘汰低效 Prompt。</div></li>
+          </ul>
+        </div>
+      </details>
+
+      <details open>
+        <summary><span>能力 4–6：RL 微調、元 Agent 與持續學習</span><span class="badge badge-completed">進階</span></summary>
+        <div class="details-content">
+          <ul class="checklist">
+            <li class="checklist-item"><span class="checklist-icon">📈</span><div><strong>能力 4 強化學習與微調 (GRPO / DPO)：</strong> GRPO（組內相對比較，無 Critic 模型，DeepSeek-R1 核心技術）；個人建議在 Colab 上用 Unsloth / Llama-Factory 微調。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">🤖</span><div><strong>能力 5 元 Agent 架構 (Meta-Agent)：</strong> Designer（設計器）、Evaluator（評估器）、Optimizer（優化器）三大元角色。</div></li>
+            <li class="checklist-item"><span class="checklist-icon">🛡️</span><div><strong>能力 6 持續學習管道：</strong>經驗回放、課程學習、災難性遺忘防護、人機回環 (Human-in-the-Loop 安全閘門)。</div></li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary><span>S5 vs S6 企業價值對比</span><span class="badge badge-progress">對比</span></summary>
+        <div class="details-content">
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>維度</th><th>傳統 Agent (Stage 5)</th><th>自我進化 Agent (Stage 6)</th></tr></thead>
+              <tbody>
+                <tr><td>維護成本</td><td>工程師定期手動調整 Prompt與工具</td><td>Agent 自我調整，維護成本趨近於零</td></tr>
+                <tr><td>適應速度</td><td>業務變化 → 等待開發排程</td><td>業務變化 → Agent 即時自我適應</td></tr>
+                <tr><td>錯誤改進</td><td>依賴人工發現修復</td><td>Agent 自動發現並自動修正</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="skills" class="section-card">
+      <div class="section-header"><div class="section-num">4</div><h2 class="section-title">技能要求與推薦工具</h2></div>
+      <div class="grid-2">
+        <div class="subcard"><h4>🛠️ 硬技能</h4><p>Reflexion 反思機制、DSPy 框架、GRPO/DPO 原理、自動化評測 Pipeline、Meta-Agent 元代理設計、機器學習基礎。</p></div>
+        <div class="subcard"><h4>💡 軟技能</h4><p>系統思維（進化生態系）、實驗設計（A/B 測試驗證）、前沿追蹤（arXiv Agent 論文）。</p></div>
+      </div>
+    </section>
+
+    <section id="practices" class="section-card">
+      <div class="section-header"><div class="section-num">5</div><h2 class="section-title">實作練習與大型專案（雙軌）</h2></div>
+      <details open>
+        <summary><span>💻 A軌實作項目（代碼軌）</span><span class="badge badge-completed">A軌</span></summary>
+        <div class="details-content">
+          <p>練習 1：Reflexion Agent (3 輪反思後準確率從 50% 提升至 75%+)｜練習 2：DSPy 自動優化實驗｜練習 3：Meta-Agent 原型｜專案：自我改進 Agent 系統 (方案 A/B/C 擇一：成功率從 50% 升至 85%+ / Meta-Agent 生成客服 / DSPy 優化 Benchmark 提升 20%+)。</p>
+        </div>
+      </details>
+
+      <details open>
+        <summary><span>🧩 B軌實作項目（低代碼軌）</span><span class="badge badge-completed">B軌</span></summary>
+        <div class="details-content">
+          <p>B軌練習：Dify 自動化回歸測試工作流（測試案例庫 Google Sheets + n8n 定時觸發 + Dify API 呼叫 + LLM-as-a-Judge 比對 + Slack 告警 + 效能對比報告）。</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="criteria" class="section-card">
+      <div class="section-header"><div class="section-num">6</div><h2 class="section-title">通關標準</h2></div>
+      <ul class="checklist">
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>方案 A：Agent 在 100 次迭代中成功率從 &lt;50% 自行提升至 &gt;85%（無人工改程式碼）</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>方案 B：Meta-Agent 接收任務描述，自動產生專用 Agent 並於測試集達成 &gt;80% 完成率</div></li>
+        <li class="checklist-item"><span class="checklist-icon">✓</span><div>方案 C：用 DSPy 自動優化 Prompt，於 Benchmark 取得 &gt;20% 提升</div></li>
+      </ul>
+      <div class="callout callout-success">
+        <strong>最高階段：</strong>您已達成 Stage 6！可將 Meta-Agent 開源、擔任 Mentor、追蹤 arXiv 前沿或打造商業產品。
+      </div>
+    </section>
+
+    <section id="resources" class="section-card">
+      <div class="section-header"><div class="section-num">7</div><h2 class="section-title">推薦學習資源與論文</h2></div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>資源 / 論文</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>Reflexion / DSPy 論文</td><td>反思機制與宣告式 Prompt 優化經典論文</td></tr>
+            <tr><td>DeepSeek-R1 (GRPO) 論文</td><td>強化的推理能力訓練論文</td></tr>
+            <tr><td>DSPy & LangFuse Docs</td><td>DSPy 框架與可觀測性工具</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <nav class="stage-nav">
+      <a href="stage-5.html" class="stage-nav-btn">← 上一階段</a>
+      <a href="../index.html" class="stage-nav-btn">返回成果首頁</a>
+      <span class="stage-nav-btn" style="opacity:0.5;pointer-events:none;">已達最高階段</span>
+    </nav>
+  </main>
+
+  <footer>
+    AI Lab 課程展示 — 手機版頁面<br>
+    內容來源：stages/stage-6-evolution-architect.md（純文字標記，無原始檔連結）
+  </footer>
+</body>
+</html>
